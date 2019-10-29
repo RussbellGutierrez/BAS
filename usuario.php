@@ -31,7 +31,7 @@
 			  <div class="collapse navbar-collapse" id="navbarMobile">
 			    <ul class="navbar-nav mr-auto dir-marg">
 			      <li class="nav-item ali-items m10-lr">
-			      	<div class="let-small">
+			      	<div class="let-small active">
 			      		<i class="fas fa-chart-line fa-2x"></i>
 			      		<span>AVANCE</span>
 			      	</div>
@@ -55,8 +55,59 @@
 			  </div>
 			</nav>
 		</div>
-		<div id="comentario" class="dimen dimen-content">
-			<div class="dimen-size bg-white">
+		<div class="avance active dimen-content">
+			<div class="center-content dimen-size bg-white-radi">
+				<div class="order-title">
+					<span class="title">VIGENTES</span>
+				</div>
+				<div id="empvigente" class="empty-div">
+					<i class="far fa-comments fa-3x"></i>
+					<span>No tiene ningún comentario vigente</span>
+				</div>
+				<div id="convigente" class="content-div active">
+					<div class="comment">
+						<div class="header-comment">
+							<span>31/12/9999</span>
+							<span>TITULO_DESCRIP</span>
+							<i class="fas fa-ellipsis-v fa-lg"></i>
+						</div>
+						<p class="parraf">Lorem ipsum dolor sit amet consectetur adipiscing elit donec neque posuere, integer egestas nec per ante erat cras pretium. Phasellus <span class="dots active">...</span><span class="rest">risus non habitasse euismod viverra habitant erat condimentum tortor, ante tincidunt sociis ut mus ullamcorper quis accumsan duis, laoreet taciti nisi convallis est fermentum etiam blandit. Sem imperdiet rutrum purus tellus suscipit id semper lectus est augue, feugiat nulla dapibus posuere dui ridiculus lacinia ultrices ante eleifend mattis, fringilla nascetur hac sagittis ultricies et cum vestibulum proin.</span></p>
+						<div class="footer-comment">
+							<span>REALIZANDOSE</span>
+							<span>N° 0001</span>
+							<span class="duration">0 días pasaron</span>
+						</div>
+					</div>
+				</div>
+				<div class="order-title">
+					<span class="title">FINALIZADO</span>
+				</div>
+				<div id="empfinaliza" class="empty-div">
+					<i class="far fa-comments fa-3x"></i>
+					<span>No tiene ningún comentario vigente</span>
+				</div>
+				<div id="confinaliza" class="content-div active">
+					<div class="comment">
+						<div class="header-comment">
+							<span>31/12/9999</span>
+							<span>TITULO_DESCRIP</span>
+							<i class="fas fa-ellipsis-v fa-lg"></i>
+						</div>
+						<p class="parraf">Lorem ipsum dolor sit amet consectetur adipiscing elit donec neque posuere, integer egestas nec per ante erat cras pretium. Phasellus <span class="dots active">...</span><span class="rest">risus non habitasse euismod viverra habitant erat condimentum tortor, ante tincidunt sociis ut mus ullamcorper quis accumsan duis, laoreet taciti nisi convallis est fermentum etiam blandit. Sem imperdiet rutrum purus tellus suscipit id semper lectus est augue, feugiat nulla dapibus posuere dui ridiculus lacinia ultrices ante eleifend mattis, fringilla nascetur hac sagittis ultricies et cum vestibulum proin.</span></p>
+						<div class="footer-comment">
+							<span>REALIZANDOSE</span>
+							<span>N° 0001</span>
+							<span class="duration">0 días pasaron</span>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex justify-content-center">
+				    <button type="button" class="btn btn-cus btn-depth">Comentarios anteriores</a>
+				</div>
+			</div>
+		</div>
+		<div class="comentario dimen dimen-content">
+			<div class="dimen-size bg-white-radi">
 				<div class="padd">
 					<h1>Comentario</h1>
 					<div class="m5-tb">
@@ -99,7 +150,6 @@
 				</div>
 			</div>
 		</div>
-		<div id="avance"></div>
 	</div>
 	<script>
 		$(".imgAdd").click(function(){
@@ -139,6 +189,16 @@
 			$(document).find('.let-small').removeClass('active')
 			$(this).addClass('active')
 		})
+		$('.parraf').on('click',function(){
+			if ($(this).children('.dots').hasClass('active')) {
+				$(this).children('.dots').removeClass('active')
+				$(this).children('.rest').addClass('active')
+			}else {
+				console.log("Second")
+				$(this).children('.rest').removeClass('active')
+				$(this).children('.dots').addClass('active')
+			}
+		})
 	</script>
 	<style>
 		.no-padding {
@@ -149,10 +209,25 @@
 			font-family: 'Nunito', sans-serif !important;
 			font-weight: 600 !important;
 		}
+		.dots.active,.rest.active {
+			display: inline;
+		}
+		.dots,.rest {
+			display: none;
+		}
 		/*.bg-darkgreen {
 			background-color: #155a44 !important;
 		}*/
-		.bg-white {
+		/*.bg-gray-radi {
+			display: flex;
+		    flex-direction: column;
+		    text-align: center;
+		    justify-content: center;
+		    height: 100%;
+			background-color: #D3D3D3 !important;
+			border-radius: 5px;
+		}*/
+		.bg-white-radi {
 			background-color: #ffffff !important;
 			border-radius: 5px;
 		}
@@ -182,6 +257,12 @@
 		    border: 1px solid gray;
 		    text-align: center;
     		padding: 10px 5px 10px 5px;
+		}
+		.border-suggest {
+			border: 3px solid #f7b132;
+		}
+		.border-bug {
+			border: 3px solid #0c9c0a;
 		}
 		/*PRINCIPAL: #29a17b
 		SECUNDARIO: #57c2a0*/
@@ -254,7 +335,6 @@
 		@media only screen and (max-width: 768px) {
 			body {
 				background: rgb(87,186,241);
-				/*background: linear-gradient(0deg, rgba(87,186,241,0.9220063025210083) 29%, rgba(241,240,250,1) 96%);*/
 			}
 			.navbar-brand {
 			    font-size: .9rem;
@@ -278,6 +358,9 @@
 			}
 			.btn:hover {
 				color: white;
+				outline:0px !important;
+			    -webkit-appearance:none;
+			    box-shadow: none !important;
 			}
 			.btn-cus {
 				width: 100%;
@@ -303,6 +386,23 @@
 			.dimen-nav {
 				padding: 0rem 1rem;
 				background: white;
+			}
+			.comment {
+			    background: white;
+			    font-size: .8rem;
+			    border-radius: 5px;
+			    box-shadow: 2px 2px 5px #b5b5b5;
+			    margin-top: 20px;
+			}
+			.parraf {
+				text-align: justify;
+    			font-weight: 100;
+    			margin: 5px 10px;
+			}
+			.duration {
+				font-size: .7rem;
+			    font-weight: 100;
+			    color: gray;
 			}
 			.m5-tb {
 				margin-top: .5rem;
@@ -344,6 +444,50 @@
 			    border: 3px dashed darkcyan;
 			    color: darkcyan;
 			    border-radius: 5px;
+			}
+			.header-comment {
+				display: flex;
+			    justify-content: space-between;
+			    margin: 5px 10px;
+			    align-items: center;
+			}
+			.footer-comment {
+				display: flex;
+			    justify-content: space-between;
+			    margin: 5px 10px;
+			    align-items: center;
+			}
+			.order-title {
+				padding: 10px 30px 0px 10px;
+			}
+			.title {
+				color: lightgray;
+	    		display: block;
+	    		border-bottom: 2px inset lightgray;
+			}
+			.empty-div.active {
+				display: flex;
+				height: 200px;
+				margin: 10px 20px 0px 20px;
+			    flex-direction: column;
+			    text-align: center;
+			    justify-content: center;
+			}
+			.content-div.active {
+				display: flex;
+				margin: 0px 30px;
+			    flex-direction: column;
+			    text-align: center;
+			    justify-content: center;
+			}
+			.center-content {
+				height: 100%;
+			}
+			.avance.active,.comentario.active {
+				display: block;
+			}
+			.avance,.comentario,.content-div,.empty-div {
+				display: none;
 			}
 		}
 
