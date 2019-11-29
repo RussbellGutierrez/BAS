@@ -14,8 +14,14 @@ class Conexion {
     }
 
     function conectUsers() {
-        $serverName = "192.168.1.132";
-        $connectionTerra = array("Database" => "PEDIMAP_USERS", "UID" => "sistemas", "PWD" => "s1st3m4s", "CharacterSet" => "UTF-8");
-        return $cont = sqlsrv_connect($serverName, $connectionTerra);
+        $serverName = "192.168.1.154";
+        $connectionUser = array("Database" => "PEDIMAP_USERS", "UID" => "systerra", "PWD" => "2345", "CharacterSet" => "UTF-8");
+        return $cont = sqlsrv_connect($serverName, $connectionUser);
+    }
+
+    function conectWeb(){
+        $serverName = "192.168.1.154";
+        $connectionWeb = array("Database" => "WEB_COMENTARIOS", "UID" => "systerra", "PWD" => "2345", "CharacterSet" => "UTF-8");
+        return $cont = sqlsrv_connect($serverName, $connectionWeb);
     }
 }
