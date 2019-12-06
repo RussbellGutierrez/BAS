@@ -120,7 +120,9 @@
 				if (jQuery.isEmptyObject(json['datos'])) {
 					Swal.fire('Advertencia','El usuario no existe, verifique los datos ingresados','warning')
 				}else {
-					if (json['msg'] == 3) {
+					if (json['msg'] == 4) {
+						Swal.fire('Advertencia','Contraseña incorrecta','warning')
+					}else if (json['msg'] == 3) {
 						Swal.fire('Error','Ocurrio un error al ingresar el usuario','error')
 					}else if (json['msg'] == 2) {
 						Swal.fire('Usuario conectado','Si no es usted, comuniquese con el área de sistemas','warning')

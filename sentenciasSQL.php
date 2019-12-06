@@ -83,13 +83,12 @@ class Query{
 		return "INSERT INTO usuarios (id,descrip,clave,tipo,dni,fec_creacion,anulado) VALUES (".$id.",'".$nombre."','".$clave."',2,".$dni.",'".$fecha."',0)";
 	}
 
-	function loginUsuario($dni,$clave){
-		return "SELECT u.id,u.descrip,u.tipo,ut.descrip AS tipo_desc
+	function loginUsuario($dni){
+		return "SELECT u.id,u.descrip,u.tipo,ut.descrip AS tipo_desc,u.clave
 				FROM usuarios u
 				INNER JOIN usu_tipo ut ON u.tipo=ut.id
 				WHERE u.anulado = 0
-				AND u.dni = ".$dni."
-				AND u.clave = '".$clave."'";
+				AND u.dni = ".$dni."";
 	}
 
 	function comprobarDisponibilidad($dni){

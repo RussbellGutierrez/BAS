@@ -18,7 +18,7 @@ $nom = strtoupper($nombre);
 
 if ($opcion == 0){
 	$clavehash = password_hash($clave, PASSWORD_DEFAULT);
-	$sql = $query->loginUsuario($dni,$clavehash);
+	$sql = $query->loginUsuario($dni);
 	$get = mysqli_query($cadena,$sql);//$get = sqlsrv_query($cadena,$sql);
 	if ($get === false) {
 			$mensaje = '3';
@@ -41,6 +41,10 @@ if ($opcion == 0){
 						$mensaje = '1';
 					}
 				}
+			}
+		}else {
+			if (!password_verify($clave,$row['clave'])) {
+				$mensaje = '4';
 			}
 		}
 	}
