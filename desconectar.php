@@ -12,7 +12,7 @@ if (isset($_COOKIE['_pr'])) {
 
 		$cadena = $m->getConectMySQL();//$cadena = $m->getConectWeb();
 		$sql = $q->crudLogin(1,$deco->id,$deco->token,date('Y-m-d H:i:s'));
-		$exe = mysql_query($cadena,$sql);//$exe = sqlsrv_query($cadena,$sql);
+		$exe = mysqli_query($cadena,$sql);//$exe = sqlsrv_query($cadena,$sql);
 		if ($exe === false) {
 			echo '0';
 		}else {

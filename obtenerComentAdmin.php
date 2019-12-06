@@ -18,9 +18,9 @@ if (isset($_COOKIE['_pr'])) {
 		$cadena = $m->getConectMySQL();//$cadena = $m->getConectWeb();
 		$sql = $query->getDetalle(1,0,0,0);
 
-		$execute = mysql_query($cadena,$sql);//$execute = sqlsrv_query($cadena,$sql);
+		$execute = mysqli_query($cadena,$sql);//$execute = sqlsrv_query($cadena,$sql);
 
-		while($datos = mysql_fetch_array($execute)){//while($datos = sqlsrv_fetch_array($execute)){
+		while($datos = mysqli_fetch_array($execute)){//while($datos = sqlsrv_fetch_array($execute)){
 			if ($user == 0 && $coment == 0) {
 				$user = $datos['usuario'];
 				$coment = $datos['codcoment'];

@@ -29,6 +29,6 @@ class Conexion {
         $user = "terran13_orterra";
         $password = "t7rr8n0rt7";
         $server ="localhost";
-        return $conexion = mysql_connect($server,$user,$password);
+        return $conexion = mysqli_connect($server,$user,$password);
     }
 }

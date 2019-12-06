@@ -39,8 +39,8 @@ class Metodos{
     	$execute = sqlsrv_query($cadena,$sql->getCookie());
     	while($p = sqlsrv_fetch_array($execute)){*/
         $cadena = $conexion->conectMySQL();
-        $execute = mysql_query($cadena,$sql->getCookie());
-        while($p = mysql_fetch_array($execute)){
+        $execute = mysqli_query($cadena,$sql->getCookie());
+        while($p = mysqli_fetch_array($execute)){
     		$data = $p['ID']." ".$p['SECRET'];
     	}
     	return $data;
@@ -60,8 +60,8 @@ class Metodos{
     	$concat = $header.'.'.$payreal.'.'.$signature;
     	/*$execute = sqlsrv_query($cadena,$sql->getSecret($id));
     	while($p = sqlsrv_fetch_array($execute)){*/
-        $execute = mysql_query($cadena,$sql->getSecret($id));
-        while($p = mysql_fetch_array($execute)){
+        $execute = mysqli_query($cadena,$sql->getSecret($id));
+        while($p = mysqli_fetch_array($execute)){
     		try {
     			$djwt = JWT::decode($concat,$p['SECRET'],['HS256']);
     		}catch(Exception $e){
@@ -72,8 +72,8 @@ class Metodos{
             /*$exe = sqlsrv_query($cadena,$sql->usuarioDisponible($djwt->id));
             sqlsrv_fetch($exe);
             $anulado = sqlsrv_get_field($exe, 0);*/
-            $exe = mysql_query($cadena,$sql->usuarioDisponible($djwt->id));
-            $anulado = mysql_field_name($exe, 0);
+            $exe = mysqli_query($cadena,$sql->usuarioDisponible($djwt->id));
+            $anulado = $this->mysqli_field_name($exe, 0);
             if ($anulado == 0) {
                 $respuesta = $djwt;
             }else {
@@ -81,6 +81,11 @@ class Metodos{
             }
         }
     	return $respuesta;
+    }
+
+    function mysqli_field_name($result, $field_offset) {
+        $properties = mysqli_fetch_field_direct($result, $field_offset);
+        return is_object($properties) ? $properties->name : false;
     }
 
     function hasher($tamanho) { 

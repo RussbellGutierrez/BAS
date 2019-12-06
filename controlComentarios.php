@@ -34,7 +34,7 @@ if (isset($_COOKIE['_pr'])) {
 		}else {
 			($estado == 2) ? $sql = $query->updateEstado($estado,$estimado,$fecha,0,$usuario,intval($comentario),$motivo) : $sql = $query->updateEstado($estado,$estimado,0,$fecha,$usuario,intval($comentario),$motivo);
 		}
-		$execute = mysql_query($cadena,$sql);//$execute = sqlsrv_query($cadena,$sql);
+		$execute = mysqli_query($cadena,$sql);//$execute = sqlsrv_query($cadena,$sql);
 
 		($execute === false) ? $respuesta = "error" : $respuesta = "success";
 		echo $respuesta;

@@ -42,7 +42,7 @@ $njwt = $header.'.'.$paynew.'.'.$signature;
 
 $fecha = date('Y-m-d H:i:s',$exp);
 $sql = $query->crudLogin($opc,$json->id,$hash_us,$fecha);
-$exe = mysql_query($cadena,$sql);//$exe = sqlsrv_query($cadena,$sql);
+$exe = mysqli_query($cadena,$sql);//$exe = sqlsrv_query($cadena,$sql);
 
 if ($exe === false) {
 	echo 'e';
