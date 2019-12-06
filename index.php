@@ -102,120 +102,79 @@
 	  </div>
 	</div>
 	<script>
-		$(document).ready(function(){
-			$('.carousel').carousel({
-        		interval: 7000,
-                pause: false
-        	})
-        	$('#form-log').on('submit',function(event){
-        		event.preventDefault()
+	$(function() {
+		$('.carousel').carousel({
+        	interval: 7000,
+            pause: false
+        })
+        $('#form-log').on('submit',function(event){
+        	event.preventDefault()
+        	Swal.fire({
+				title: 'Verificando usuario y contraseña...',
+				allowEscapeKey: false,
+				allowOutsideClick: false
+			})
+			Swal.showLoading()
+			$.post('controlUsuarios.php',{opcion:0,dni:$('#user').val(),clave:$('#pass').val()},function(e){
+				const json = JSON.parse(e)
+				if (jQuery.isEmptyObject(json['datos'])) {
+					Swal.fire('Advertencia','El usuario no existe, verifique los datos ingresados','warning')
+				}else {
+					if (json['msg'] == 3) {
+						Swal.fire('Error','Ocurrio un error al ingresar el usuario','error')
+					}else if (json['msg'] == 2) {
+						Swal.fire('Usuario conectado','Si no es usted, comuniquese con el área de sistemas','warning')
+					}else {
+						var opc = 0
+						if (json['msg'] == 1)
+							opc = 1
+						Swal.close()
+						var param = JSON.stringify({'id':json['datos']['id'],'usuario':json['datos']['usuario'],'tipo':json['datos']['tipo'],'tipo_desc':json['datos']['tipo_desc']})
+						$.post('manejo.php',{opcion:opc,parametros:param},function(e){
+							if (e == 'a') {
+				            	window.location.href = "administrador.php"
+				            }else if (e == 'u') {
+				            	window.location.href = "usuario.php"
+				            }else {
+				            	Swal.fire('Error','Ocurrio un error durante su ingreso','error')
+				            }
+						})
+					}
+				}
+			})
+        })
+        $('#form-reg').on('submit',function(event){
+        	event.preventDefault()
+        	if ($('clave1').val() == $('clave2').val()) {
         		Swal.fire({
-					title: 'Verificando usuario y contraseña...',
+					title: 'Registrando nuevo usuario...',
 					allowEscapeKey: false,
 					allowOutsideClick: false
 				})
 				Swal.showLoading()
-				$.post('controlUsuarios.php',{opcion:0,dni:$('#user').val(),clave:$('#pass').val()},function(e){
+				$.post('controlUsuarios.php',{opcion:1,nombre:$('#usuario').val(),dni:$('#dni').val(),clave:$('#clave1').val()},function(e){
 					const json = JSON.parse(e)
-					if (json['msg'] == 2) {
-						Swal.fire('Error','Ocurrio un error al ingresar el usuario','error')
+					if (json['msg'] == '') {
+						Swal.fire('Correcto','Usuario registrado correctamente','success')
+						$('#usuario').val('')
+						$('#dni').val('')
+						$('#clave1').val('')
+						$('#clave2').val('')
 					}else {
-						if (jQuery.isEmptyObject(json['datos'])) {
-							Swal.fire('Advertencia','El usuario no existe, verifique los datos ingresados','warning')
-						}else {
-							Swal.close()
-							var param = JSON.stringify({'id':json['datos']['id'],'usuario':json['datos']['usuario'],'tipo':json['datos']['tipo'],'tipo_desc':json['datos']['tipo_desc']})
-				            $.post('manejo.php',{parametros:param},function(e){
-				            	(e == 'a')? window.location.href = "administrador.php" : window.location.href = "usuario.php"
-				            })
+						if (json['msg'] == 1) {
+							Swal.fire('Advertencia','Existe un usuario registrado anteriormente, comuniquese con soporte','warning')
+						}else if (json['msg'] == 2) {
+							Swal.fire('Error','Ocurrio un error al registrar el usuario','error')
+						}else if (json['msg'] == 3) {
+							Swal.fire('Advertencia','No puede usar este DNI','warning')
 						}
 					}
 				})
-        		/*$.ajax({
-					type: 'POST',
-					url: 'http://200.110.40.58/api/usuario/ingresar',
-					dataType: 'json',
-					contentType: 'application/json; charset=utf-8',
-					xhrFields:{withCredentials:false},
-					crossDomain: true,
-					data: JSON.stringify({'usuario':$('#user').val(),'clave':$('#pass').val(),'empresa':$("#emp option:selected").val()}),
-					success: function(data) {
-			            Swal.close()
-			            $.post('manejo.php',{parametros:JSON.stringify(data)},function(e){
-			            	(e == 'a')? window.location.href = "administrador.php" : window.location.href = "usuario.php"
-			            })
-			        }, 
-			    	error: function(jqXHR, textStatus, errorThrown) {
-			    		switch(jqXHR.status){
-			    			case 400:
-			    			Swal.fire('Error','Complete todos los espacios en blanco','error')
-			    			break
-			    			case 404:
-			    			Swal.fire('Advertencia','Usuario no encontrado','warning')
-			    			break
-			    			case 405:
-			    			Swal.fire('Advertencia',"Contraseña incorrecta",'warning')
-			    			break
-			    			default:
-			    			Swal.fire('Error','Ocurrio un error al querer ingresar','error')
-			    			break
-			    		}
-			        }
-				})*/
-        	})
-        	$('#form-reg').on('submit',function(event){
-        		event.preventDefault()
-        		if ($('clave1').val() == $('clave2').val()) {
-        			Swal.fire({
-						title: 'Registrando nuevo usuario...',
-						allowEscapeKey: false,
-						allowOutsideClick: false
-					})
-					Swal.showLoading()
-					$.post('controlUsuarios.php',{opcion:1,nombre:$('#usuario').val(),dni:$('#dni').val(),clave:$('#clave1').val()},function(e){
-						const json = JSON.parse(e)
-						if (json['msg'] == '') {
-							Swal.fire('Correcto','Usuario registrado correctamente','success')
-							$('#usuario').val('')
-							$('#dni').val('')
-							$('#clave1').val('')
-							$('#clave2').val('')
-						}else {
-							if (json['msg'] == 1) {
-								Swal.fire('Advertencia','Existe un usuario registrado anteriormente, comuniquese con soporte','warning')
-								/*Swal.fire({
-								  title: 'Advertencia',
-								  text: "Ya existe un usuario registrado anteriormente, desea anularlo?",
-								  type: 'warning',
-								  showCancelButton: true,
-								  confirmButtonColor: '#3085d6',
-								  cancelButtonColor: '#d33',
-								  cancelButtonText: 'No',
-								  confirmButtonText: 'Si'
-								}).then((result) => {
-								  	if (result.value) {
-									  	$.post('controlUsuarios.php',{opcion:2,dni:$('#dni').val()},function(e){
-									  		const js = JSON.parse(e)
-									  		if (js['msg'] == 3) {
-									  			Swal.fire('Error','Ocurrio un error mientras se anulaba el usuario','error')
-									  		}else {
-									  			Swal.fire('Correcto','Usuarios anteriores anulados, registre el nuevo usuario','success')
-									  		}
-									  	})	
-								  	}
-								})*/
-							}else if (json['msg'] == 2) {
-								Swal.fire('Error','Ocurrio un error al registrar el usuario','error')
-							}else if (json['msg'] == 3) {
-								Swal.fire('Advertencia','No puede usar este DNI','warning')
-							}
-						}
-					})
-        		}else {
-        			Swal.fire('Advertencia','Verifique que la contraseña se repita en ambos campos','warning')
-        		}
-        	})
-		})
+        	}else {
+        		Swal.fire('Advertencia','Verifique que la contraseña se repita en ambos campos','warning')
+        	}
+        })
+	})
 	</script>
 	<style>
 		.carousel-item {
@@ -315,6 +274,11 @@
 			}
 			.m-content {
 				margin: 0px 50px;
+			}
+			@-moz-document url-prefix() {
+			  .over-carousel {
+			    height: 344px;
+			  }
 			}
 		}
 

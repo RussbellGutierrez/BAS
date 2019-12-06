@@ -27,21 +27,30 @@ class Metodos{
         return $conexion->conectWeb();
     }
 
+    function getConectMySQL(){
+        $conexion = new Conexion;
+        return $conexion->conectMySQL();
+    }
+
     function getHasher(){
     	$sql = new Query;
     	$conexion = new Conexion;
-    	$cadena = $conexion->conectWeb();
+    	/*$cadena = $conexion->conectWeb();
     	$execute = sqlsrv_query($cadena,$sql->getCookie());
-    	while($p = sqlsrv_fetch_array($execute)){
+    	while($p = sqlsrv_fetch_array($execute)){*/
+        $cadena = $conexion->conectMySQL();
+        $execute = mysql_query($cadena,$sql->getCookie());
+        while($p = mysql_fetch_array($execute)){
     		$data = $p['ID']." ".$p['SECRET'];
     	}
     	return $data;
     }
 
     function decodeCookie($jwt){
-    	$sql = new Query;
+    	$djwt = '';
+        $sql = new Query;
     	$conexion = new Conexion;
-    	$cadena = $conexion->conectWeb();
+    	$cadena = $conexion->conectMySQL();//$cadena = $conexion->conectWeb();
     	$header = explode('.', $jwt)[0];
     	$payload = explode('.', $jwt)[1];
     	$signature = explode('.', $jwt)[2];
@@ -49,22 +58,36 @@ class Metodos{
     	$id = substr($mix,2,-2);
     	$payreal = substr($payload,0,3).substr($payload,15);
     	$concat = $header.'.'.$payreal.'.'.$signature;
-    	$execute = sqlsrv_query($cadena,$sql->getSecret($id));
-    	while($p = sqlsrv_fetch_array($execute)){
+    	/*$execute = sqlsrv_query($cadena,$sql->getSecret($id));
+    	while($p = sqlsrv_fetch_array($execute)){*/
+        $execute = mysql_query($cadena,$sql->getSecret($id));
+        while($p = mysql_fetch_array($execute)){
     		try {
-    			$decoded = JWT::decode($concat,$p['SECRET'],['HS256']);
+    			$djwt = JWT::decode($concat,$p['SECRET'],['HS256']);
     		}catch(Exception $e){
-    			$decoded = 0;
+    			$respuesta = 0;
     		}
     	}
-    	return $decoded;
+        if ($djwt != '') {
+            /*$exe = sqlsrv_query($cadena,$sql->usuarioDisponible($djwt->id));
+            sqlsrv_fetch($exe);
+            $anulado = sqlsrv_get_field($exe, 0);*/
+            $exe = mysql_query($cadena,$sql->usuarioDisponible($djwt->id));
+            $anulado = mysql_field_name($exe, 0);
+            if ($anulado == 0) {
+                $respuesta = $djwt;
+            }else {
+                $respuesta = 0;
+            }
+        }
+    	return $respuesta;
     }
 
-    function hasher() { 
+    function hasher($tamanho) { 
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
 		$randomString = ''; 
 
-		for ($i = 0; $i < 4; $i++) { 
+		for ($i = 0; $i < $tamanho; $i++) { 
 			$index = rand(0, strlen($characters) - 1); 
 			$randomString .= $characters[$index]; 
 		} 
@@ -87,7 +110,8 @@ class Metodos{
 		$avance = 0;
 		if ($iniciado != 0) {
 			$fr = date_create($iniciado);
-			$fe = date_create(date('Y-m-d', strtotime($iniciado. ' + '.$estimado.' days')));
+			//$fe = date_create(date('Y-m-d', strtotime($iniciado. ' + '.$estimado.' days')));
+            $fe = date_create($estimado);
 			$fa = date_create(date('Y-m-d'));
 			if ($estimado == 0) {
                 $f = date_diff($fr,$fa);

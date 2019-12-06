@@ -5,6 +5,7 @@ date_default_timezone_set('America/Bogota');
 
 $titulo = filter_input(INPUT_POST, "titulo");
 $comentario = filter_input(INPUT_POST, "comentario");
+$app = filter_input(INPUT_POST, "app");
 $tipo = filter_input(INPUT_POST, "tipo");
 $imagenes = filter_input(INPUT_POST, "imagenes");
 
@@ -19,10 +20,11 @@ if (isset($_COOKIE['_pr'])) {
 	$deco = $m->decodeCookie($_COOKIE['_pr']);
 	if ($deco != '0') {
 
-		$cadena = $m->getConectWeb();
-		$execute = sqlsrv_query($cadena,$query->getUltimoComentario($deco->id));
-		sqlsrv_fetch($execute);
-		$ultimo = sqlsrv_get_field($execute, 0) + 1;
+		$cadena = $m->getConectMySQL();//$cadena = $m->getConectWeb();
+		$execute = mysql_query($cadena,$query->getUltimoComentario($deco->id));
+		/*sqlsrv_fetch($execute);
+		$ultimo = sqlsrv_get_field($execute, 0) + 1;*/
+		$ultimo = mysql_field_name($execute, 0) + 1;
 		$arr_img = json_decode($imagenes);
 		(empty($arr_img)) ? $foto = 0 : $foto = 1;
 		$comentario = str_replace("'", "''",$comentario);
@@ -38,18 +40,18 @@ if (isset($_COOKIE['_pr'])) {
 
 			foreach ($descrip as $coment) {
 				$hora = date('H:i:s').':'.$contador;
-				$row = array('fecha'=>date('Y-m-d'),'hora'=>$hora,'usuario'=>$deco->id,'codigo'=>$ultimo,'titulo'=>$titulo,'descrip'=>$coment,'tipo'=>$tipo,'foto'=>$foto);
+				$row = array('fecha'=>date('Y-m-d'),'hora'=>$hora,'usuario'=>$deco->id,'codigo'=>$ultimo,'titulo'=>$titulo,'descrip'=>$coment,'app'=>$app,'tipo'=>$tipo,'foto'=>$foto);
 				array_push($list,$row);
 				$contador++;
 			}
 		}else {
-			$row = array('fecha'=>date('Y-m-d'),'hora'=>date('H:i:s'),'usuario'=>$deco->id,'codigo'=>$ultimo,'titulo'=>$titulo,'descrip'=>$comentario,'tipo'=>$tipo,'foto'=>$foto);
+			$row = array('fecha'=>date('Y-m-d'),'hora'=>date('H:i:s'),'usuario'=>$deco->id,'codigo'=>$ultimo,'titulo'=>$titulo,'descrip'=>$comentario,'app'=>$app,'tipo'=>$tipo,'foto'=>$foto);
 			array_push($list,$row);
 		}
 
 		foreach ($list as $i) {
-			$sql = $query->setComentario($i['fecha'],$i['hora'],$i['usuario'],$i['codigo'],$i['titulo'],$i['descrip'],$i['tipo'],$i['foto']);
-			$insert = sqlsrv_query($cadena,$sql);
+			$sql = $query->setComentario($i['fecha'],$i['hora'],$i['usuario'],$i['codigo'],$i['titulo'],$i['descrip'],$i['app'],$i['tipo'],$i['foto']);
+			$insert = mysql_query($cadena,$sql);//$insert = sqlsrv_query($cadena,$sql);
 		}
 
 		if ($insert === false) {

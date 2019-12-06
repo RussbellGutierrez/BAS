@@ -38,13 +38,16 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!--script src="https://kit.fontawesome.com/c6963f4a8b.js" crossorigin="anonymous"></script-->
+	<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/gijgo@1.9.13/js/messages/messages.es-es.js" type="text/javascript"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.6.1/js/all.js" integrity="sha384-R5JkiUweZpJjELPWqttAYmYM1P3SNEJRM6ecTQF05pFFtxmCO+Y1CiUhvuDzgSVZ" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,900&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="container-fluid no-padding">
+	<div class="container container-fluid no-padding body-lg">
 		<div class="dimen dimen-nav">
 			<nav class="navbar navbar-expand-lg navbar-light dimen-size">
 				<a class="navbar-brand" href="#">
@@ -62,59 +65,85 @@
 			  <div class="collapse navbar-collapse" id="navbarMobile">
 			    <ul class="navbar-nav mr-auto dir-marg">
 			      <li class="nav-item ali-items nvc">
-			      	<div class="let-small n-disponible active">
+			      	<div class="d-md-lg let-small n-disponible active">
 			      		<i class="fas fa-inbox fa-2x"></i>
-			      		<span>DISPONIBLES</span>
+			      		<span>DISPONIBLE</span>
 			      	</div>
-			        <a class="nav-link d-sm" href="#">DISPONIBLES</a>
+			      	<a class="d-sm opt-link n-disponible active" href="#">
+			      		<div class="let-large">
+			      			<i class="fas fa-inbox fa-2x"></i>
+			      			<span>DISPONIBLE</span>
+			      		</div>
+			      	</a>
 			      </li>
 			      <li class="nav-item ali-items nvc">
-			      	<div class="let-small n-tomado">
+			      	<div class="d-md-lg let-small n-tomado">
 			      		<i class="fas fa-chart-pie fa-2x"></i>
-			      		<span>TOMADOS</span>
+			      		<span>TOMADO</span>
 			      	</div>
-			        <a class="nav-link d-sm" href="#">TOMADOS</a>
+			      	<a class="d-sm opt-link n-tomado" href="#">
+			      		<div class="let-large">
+			      			<i class="fas fa-chart-pie fa-2x"></i>
+			      			<span>TOMADO</span>
+			      		</div>
+			      	</a>
 			      </li>
 			      <li class="nav-item ali-items nvc">
-			      	<div class="let-small n-comentario">
+			      	<div class="d-md-lg let-small n-comentario">
 			      		<i class="far fa-comment-alt fa-2x"></i>
 			      		<span>COMENTARIO</span>
 			      	</div>
-			        <a class="nav-link d-sm" href="#">COMENTARIO</a>
+			      	<a class="d-sm opt-link n-comentario" href="#">
+			      		<div class="let-large">
+			      			<i class="far fa-comment-alt fa-2x"></i>
+			      			<span>COMENTARIO</span>
+			      		</div>
+			      	</a>
 			      </li>
 			      <li class="nav-item ali-items nvc">
-			      	<div class="let-small n-realizandose">
+			      	<div class="d-md-lg let-small n-realizandose">
 			      		<i class="fas fa-glasses fa-2x"></i>
 			      		<span>REALIZANDOSE</span>
 			      	</div>
-			        <a class="nav-link d-sm" href="#">REALIZANDOSE</a>
+			      	<a class="d-sm opt-link n-realizandose" href="#">
+			      		<div class="let-large">
+			      			<i class="fas fa-glasses fa-2x"></i>
+			      			<span>REALIZANDOSE</span>
+			      		</div>
+			      	</a>
 			      </li>
 			      <li class="nav-item ali-items">
-			      	<div class="let-small n-desconectar">
+			      	<div class="d-md-lg let-small n-desconectar">
 			      		<i class="fas fa-power-off fa-2x"></i>
 			      		<span>DESCONECTAR</span>
 			      	</div>
-			        <a class="nav-link d-sm" href="#">DESCONECTAR</a>
+			        <a class="d-sm opt-link n-desconectar" href="#">
+			      		<div class="let-large">
+			      			<i class="fas fa-power-off fa-2x"></i>
+			      			<span>DESCONECTAR</span>
+			      		</div>
+			      	</a>
 			      </li>
 			    </ul>
 			  </div>
 			</nav>
 		</div>
 		<div class="disponible dimen dimen-content active">
-			<div class="dimen-size bg-white-radi">
+			<div class="dimen-size bg-white-radi d-flex-lg">
 				<div class="order-title">
-					<span class="title libre active" style="width: 50%;">LIBRES</span>
-					<span class="title propio" style="width: 50%;text-align: end;">PROPIOS</span>
-					<span class="title otros" style="text-align: end;color: black;"><i class="fas fa-chevron-circle-right"></i></span>
+					<span class="title libre active">LIBRES</span>
+					<span class="title propio">PROPIOS</span>
+					<span class="title otros">OTROS</span>
 				</div>
-				<div id="disponible"></div>
+				<div id="disponible" class="lg-empty"></div>
 				<button class="gotop" ><i class="fas fa-arrow-up"></i></button>
 			</div>
 		</div>
 		<div class="tomado dimen dimen-content">
-			<div class="dimen-size bg-white-radi">
+			<div class="dimen-size bg-white-radi d-flex-lg">
 				<div class="order-title">
-					<span id="fintom" style="width: 100%;border-bottom: 2px solid lightgray;">FINALIZADOS</span>
+					<span class="title tomados active">TOMADOS</span>
+					<span class="title finalizados">FINALIZADOS</span>
 				</div>
 				<div id="tomado"></div>
 				<button class="gotop" ><i class="fas fa-arrow-up"></i></button>
@@ -126,39 +155,64 @@
 					<h1>Comentario</h1>
 					<div class="m5-tb">
 						<label>Titulo</label>
-					    <input type="text" class="form-control title-comment" placeholder="Titulo del comentario">
+					    <input id="title-com" type="text" class="form-control form-field" placeholder="Titulo del comentario">
 					</div>
 					<div class="m5-tb">
 						<label>Descripcion</label>
-				    	<textarea class="form-control descrip-comment" placeholder="Describa su comentario brevemente..."></textarea>
+				    	<textarea id="descrip-com" class="form-control form-field" placeholder="Describa su comentario brevemente..."></textarea>
 					</div>
+					<div class="form-group m5-tb">
+						<label>Seleccione aplicacion</label>
+			      		<select id="app-com" class="form-control" style="text-align-last: center;">
+			      			<option value="0">--APLICACION ASOCIADA--</option>
+			      			<option value="1">CUBOS</option>
+			      			<option value="2">PEDIMAP VENTAS</option>
+			      			<option value="3">PEDIMAP TRANSPORTE</option>
+			      			<option value="4">CONCAR</option>
+			      			<option value="5">INTELSOFT</option>
+			      			<option value="6">CHESS</option>
+			      			<option value="7">KVENTAS</option>
+			      			<option value="8">KTRANSPORTE</option>
+			      			<option value="9">MANTENIMIENTO</option>
+			      			<option value="10">CATALOGO</option>
+			      			<option value="11">IWOT</option>
+			      			<option value="12">BAS</option>
+			      			<option value="13">OTROS</option>
+			      		</select>
+			      	</div>
 					<div class="m5-tb">
 						<label>Tipo comentario</label>
 					    <div class="d-flex justify-content-center">
-					    	<div class="type-button comment-dots" value='1'>
-					    		<i class="far fa-comment-dots fa-2x"></i>
-					    		<span>Sugerencia</span>
+					    	<div class="type-button comment-dots" style="display: flex;align-items: center;" value='1'>
+					    		<div>
+					    			<i class="far fa-comment-dots fa-2x"></i>
+					    			<span>Sugerencia</span>
+					    		</div>
 					    	</div>
-					    	<div class="type-button bug" value='2'>
-					    		<i class="fas fa-bug fa-2x"></i>
-					    		<span>Problema</span>
+					    	<div class="type-button bug" style="display: flex;align-items: center;" value='2'>
+					    		<div>
+					    			<i class="fas fa-bug fa-2x"></i>
+					    			<span style="font-size: .8rem;">Problemas u Observaciones</span>
+					    		</div>
 					    	</div>
-					    	<div class="type-button laptop" value='3'>
-					    		<i class="fas fa-laptop-code fa-2x"></i>
-					    		<span>Aplicacion</span>
+					    	<div class="type-button laptop" style="display: flex;align-items: center;" value='3'>
+					    		<div>
+					    			<i class="fas fa-laptop-code fa-2x"></i>
+					    			<span>Peticion</span>
+					    		</div>
 					    	</div>
 					    </div>
 					</div>
 					<div class="m5-tb">
 						<label>Foto (opcional)</label>
-						<div class="grid-items">
+						<div class="grid-images">
 							<div class="btimg-edit">
 								<label class="buton-img"><i class="fas fa-camera-retro fa-3x"></i><input type="file" class="upload-image" accept="image/x-png,image/gif,image/jpeg"><span>Seleccionar una foto</span></label>
 							</div>
 						</div>
 					</div>
-				    <div class="d-flex justify-content-center">
-				    	<button id="guardar" type="button" class="btn btn-cus btn-depth" style="font-size: 1.6rem;">Enviar comentario</a>
+				    <div class="d-flex justify-content-center sc-lg">
+				    	<button id="guardar" type="button" class="btn btn-cus btn-depth">Enviar comentario</a>
 				    </div>
 				</div>
 			</div>
@@ -269,10 +323,11 @@
 		      		<option value="5">CORREGIDO</option>
 		      	</select>
 	      	</div>
-	      	<div id="opc-dias" style="display: flex;align-items: center;">
-	      		<input id="dias" type="number" class="form-control numberParser" style="width: 20%;" placeholder="Dias" value="1" min="1" maxlength="4" />
-	      		<span style="width: 80%;margin-left: 5px;font-size: .8rem"> DIAS NECESARIOS PARA CUMPLIR</span>
-	      	</div>
+	      	<textarea id="opc-coment" class="form-control" style="height: 100px;resize: none;" maxlength="255" placeholder="Comentario opcional..."></textarea>
+	      	<div id="opc-estimado" class="form-group">
+                <label>Fecha final estimada</label>
+                <input id="estimado" type='text' readonly="readonly"/>
+            </div>
 	      	<div style="text-align-last: end;margin-top: 10px;">
 	      		<button id="opc-btn" type="button" class="btn btn-success btn-sm">CONFIRMAR</button>
 	      	</div>
@@ -283,7 +338,15 @@
 	<input id="otros-opt" type="hidden" value="">
 	<script>
 		$(function() {
-			$('#opc-dias').hide()
+			var d = new Date()
+		    var hoy = [d.getFullYear(),('0' + (d.getMonth() + 1)).substr(-2),('0' + d.getDate()).substr(-2)].join('-')
+			$('#estimado').datepicker({
+            	format: 'yyyy-mm-dd',
+	            uiLibrary: 'bootstrap4',
+	            locale: 'es-es',
+	            minDate: hoy
+	        }).val(hoy)
+			$('#opc-estimado').hide()
 			$('.numberParser').on('focusout',function(){noCero($(this).val(),$(this))})
             $('.numberParser').on('keypress',function(evt){return soloNumeros(evt)})
 			$('.otros').hide()
@@ -324,25 +387,84 @@
 				}
 			})
 			$('.title').on('click',function(){
-				if (!$(this).hasClass('otros')) {
+				if (!$(this).hasClass('otros') && !$(this).hasClass('finalizados')) {
 					mensaje()
 					$('.title').removeClass('active')
 					if ($(this).hasClass('libre')) {
-						$('.title').css('width','50%')
 						$('.otros').hide()
 						$(this).addClass('active')
 						comentarios(0,1,0,0)
 					}
 					if ($(this).hasClass('propio')) {
-						$('.propio').css('width','45%')
-						$('.otros').css('width','5%')
 						$('.otros').show()
 						$(this).addClass('active')
 						comentarios(0,0,0,0)
 					}
+					if ($(this).hasClass('tomados')) {
+						$(this).addClass('active')
+						comentariosTomados(0,2,0,0)
+					}
 				}
 			})
 			$('.let-small').on('click',function(){
+				if ($(this).hasClass('n-desconectar')) {
+					clearFields()
+					Swal.fire({
+					  title: 'Desconectar',
+					  text: "Seguro que quiere desconectarse?",
+					  type: 'warning',
+					  showCancelButton: true,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#d33',
+					  cancelButtonText: 'No',
+					  confirmButtonText: 'Si'
+					}).then((result) => {
+						if (result.value) {
+							$.post('desconectar.php',function(e){
+						  		if (e == 0) {
+						  			Swal.fire('Error','Ocurrio un error durante el proceso','error')
+						  		}else {
+						  			window.location.href = "index.php"
+						  		}
+						  	})
+						}
+					})
+				}else {
+					$('.let-small').removeClass('active')
+					$(this).addClass('active')
+					if ($(this).hasClass('n-disponible')) {
+						clearFields()
+						$('.title').removeClass('active')
+						$('.dimen-content').removeClass('active')
+						$('.disponible.dimen-content').addClass('active')
+						$('.otros').hide()
+						$('.title.libre').addClass('active')
+						mensaje()
+						comentarios(0,1,0,0)
+					}
+					if ($(this).hasClass('n-tomado')) {
+						clearFields()
+						$('.title').removeClass('active')
+						$('.dimen-content').removeClass('active')
+						$('.tomado.dimen-content').addClass('active')
+						$('.title.tomados').addClass('active')
+						mensaje()
+						comentariosTomados(0,2,0,0)
+					}
+					if($(this).hasClass('n-comentario')){
+						$('.dimen-content').removeClass('active')
+						$('.comentario.dimen-content').addClass('active')
+					}
+					if ($(this).hasClass('n-realizandose')) {
+						clearFields()
+						$('.dimen-content').removeClass('active')
+						$('.realizandose.dimen-content').addClass('active')
+						mensaje()
+						comentarioRealizandose()
+					}
+				}
+			})
+			$('.opt-link').on('click',function(){
 				if ($(this).hasClass('n-desconectar')) {
 					clearFields()
 					Swal.fire({
@@ -360,28 +482,34 @@
 					  }
 					})
 				}else {
-					$(document).find('.let-small').removeClass('active')
+					$('.opt-link').removeClass('active')
 					$(this).addClass('active')
 					if ($(this).hasClass('n-disponible')) {
 						clearFields()
-						$(document).find('.dimen-content').removeClass('active')
-						$(document).find('.disponible.dimen-content').addClass('active')
+						$('.title').removeClass('active')
+						$('.dimen-content').removeClass('active')
+						$('.disponible.dimen-content').addClass('active')
+						$('.title.libre').addClass('active')
+						mensaje()
+						comentarios(0,1,0,0)
 					}
 					if ($(this).hasClass('n-tomado')) {
 						clearFields()
-						$(document).find('.dimen-content').removeClass('active')
-						$(document).find('.tomado.dimen-content').addClass('active')
+						$('.title').removeClass('active')
+						$('.dimen-content').removeClass('active')
+						$('.tomado.dimen-content').addClass('active')
+						$('.title.tomados').addClass('active')
 						mensaje()
 						comentariosTomados(0,2,0,0)
 					}
 					if($(this).hasClass('n-comentario')){
-						$(document).find('.dimen-content').removeClass('active')
-						$(document).find('.comentario.dimen-content').addClass('active')
+						$('.dimen-content').removeClass('active')
+						$('.comentario.dimen-content').addClass('active')
 					}
 					if ($(this).hasClass('n-realizandose')) {
 						clearFields()
-						$(document).find('.dimen-content').removeClass('active')
-						$(document).find('.realizandose.dimen-content').addClass('active')
+						$('.dimen-content').removeClass('active')
+						$('.realizandose.dimen-content').addClass('active')
 						mensaje()
 						comentarioRealizandose()
 					}
@@ -418,8 +546,9 @@
 				}
 			})
 			$('#guardar').on('click',function(){
-				var titulo = $('.title-comment').val()
-				var descrip = $('.descrip-comment').val()
+				var titulo = $('#title-com').val()
+				var descrip = $('#descrip-com').val()
+				var app = $('#app-com').val()
 				if (titulo == '' || descrip == '') {
 					Swal.fire({
 						title: 'Aviso',
@@ -429,7 +558,13 @@
 				}else if (!$('.type-button').hasClass('active')){
 					Swal.fire({
 						title: 'Aviso',
-						text: 'Debe indicar el tipo de comentario',
+						text: 'Indique el tipo de comentario',
+						type: 'warning'
+					})
+				}else if (app == 0){
+					Swal.fire({
+						title: 'Aviso',
+						text: 'Indique la aplicacion asociada',
 						type: 'warning'
 					})
 				}else {
@@ -438,7 +573,7 @@
 					$('.img-upload').each(function(i){
 						img.push($(this).attr('src'))
 					})
-					$.post('guardarComentario.php',{titulo:titulo,comentario:descrip,tipo:tipo,imagenes:JSON.stringify(img)},function(e){
+					$.post('guardarComentario.php',{titulo:titulo,comentario:descrip,app:app,tipo:tipo,imagenes:JSON.stringify(img)},function(e){
 						if (e != '0') {
 							switch(e){
 								case '1':
@@ -467,7 +602,7 @@
 				$('#otros-opt').val(0)
 				$('#parametros').modal('show')
 			})
-			$('#fintom').on('click',function(){
+			$('.finalizados').on('click',function(){
 				$('#otros-opt').val(1)
 				$('#parametros').modal('show')
 			})
@@ -481,10 +616,15 @@
 			})
 			$('#sele-opc').change(function(){
 		        var estado = $(this).children("option:selected").val()
-		        if (estado == 2) {
-		        	$('#opc-dias').show()
+		        if (estado == 0) {
+		        	$('#opc-estimado').hide()
+		        	$('#opc-coment').hide()
+		        }else if (estado == 2) {
+		        	$('#opc-estimado').show()
+		        	$('#opc-coment').hide()
 		        }else {
-		        	$('#opc-dias').hide()
+		        	$('#opc-estimado').hide()
+		        	$('#opc-coment').show()
 		        }
 		    })
 			$('#opc-btn').on('click',function(){
@@ -492,11 +632,22 @@
 				if (estado == 0) {
 					Swal.fire('Advertencia','Debe seleccionar un estado para proceder','warning')
 				}else {
-					var dias = 0
-					if (estado == 2) {
-						dias = $('#dias').val()
+					if (estado == 2 && $('#estimado').val() == '') {
+						Swal.fire('Advertencia','Seleccione una fecha estimada de finalizacion','warning')
+					}else {
+						var estimado = null
+						var motivo = $('#opc-coment').val()
+						if (estado == 2) {
+							estimado = $('#estimado').val()
+						}
+						actualizarEstado($(this).val(),motivo,estimado,estado)
 					}
-					actualizarEstado($(this).val(),dias,estado)
+					/*var dias = 0
+					var motivo = $('#opc-coment').val()
+					if (estado == 2) {
+						dias = $('#estimado').val()
+					}
+					actualizarEstado($(this).val(),motivo,dias,estado)*/
 				}
 			})
 		})
@@ -515,9 +666,10 @@
             boton.val(1)
         }
     }
-    function actualizarEstado(data,dias,estado){
+    function actualizarEstado(data,motivo,estimado,estado){
     	var p = data.split("@")
-    	$.post('controlComentarios.php',{opcion:2,usuario:p[2],comentario:p[0],dias:dias,estado:estado},function(e){
+    	$.post('controlComentarios.php',{opcion:2,usuario:p[2],comentario:p[0],motivo:motivo,estimado:estimado,estado:estado},function(e){
+    		console.log(e)
     		if (e != 0) {
 				if (e == 'error') {
 					Swal.fire({
@@ -547,28 +699,28 @@
 			if (e != '0') {
 				let item = ""
 				var admin = 0
+				item += "<div class='order-title' style='background: unset;'>"
+				item += "<span class='title-uni'>REALIZANDOSE</span>"
+				item += "</div>"
 				if (e != "[[]]") {
 					const json = JSON.parse(e)
-					item += "<div class='order-title'>"
-					item += "<span class='title' style='width: 100%;'>REALIZANDOSE</span>"
-					item += "</div>"
-					item += "<div class='content-div' style='margin-top: 10px;'>"
+					item += "<div class='content-div pad-cus' style='margin-top: 10px;display: block;flex-wrap: unset;'>"
 					for (let i = 0; i < json.length; i++) {
 						if (admin == 0) {
 							admin = json[i].admin
 							item += "<div class='com-padre'>"
-								item += "<div class='h-com rounded-top' style='display: flex;justify-content: space-between;background: darkmagenta;padding: 0px 5px;'>"
+								item += "<div class='h-com rounded-top'>"
 									item += "<span>"+json[i].nomadmin+"</span>"
 									item += "<span class='chv-dw' style='display:none;'><i class='fas fa-chevron-circle-down'></i></span>"
 								item += "</div>"
-								item += "<div class='com-hijo' style='color:black;background: white;'>"
+								item += "<div class='com-hijo'>"
 								/*comentario*/
 								if (json[i].tipo == 1) {
-									item += "<div class='comment border-suggest'>"
+									item += "<div class='comment border-suggest d-block-sm'>"
 								}else if(json[i].tipo == 2) {
-									item += "<div class='comment border-bug'>"
+									item += "<div class='comment border-bug d-block-sm'>"
 								}else {
-									item += "<div class='comment border-app'>"
+									item += "<div class='comment border-app d-block-sm'>"
 								}
 									item += "<div class='alter-header-comment'>"
 									item += "<span><i class='fas fa-calendar'></i> "+json[i].fecha+"</span>"
@@ -593,8 +745,9 @@
 									item += "</div>"
 									item += "<div class='in-fin'>"
 										item += "<span><i class='far fa-flag'></i> "+json[i].iniciado+"</span>"
-										item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].fecesti+"</span>"
+										item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].estimado+"</span>"
 									item += "</div>"
+									item += "<div><i class='fas fa-cubes'></i> "+json[i].app+"</div>"
 								item += "</div>"
 								/*comentario*/
 								if (i == (json.length-1)) {
@@ -605,11 +758,11 @@
 						}else if (admin == json[i].admin) {
 							/*comentario*/
 							if (json[i].tipo == 1) {
-								item += "<div class='comment border-suggest'>"
+								item += "<div class='comment border-suggest d-block-sm'>"
 							}else if(json[i].tipo == 2) {
-								item += "<div class='comment border-bug'>"
+								item += "<div class='comment border-bug d-block-sm'>"
 							}else {
-								item += "<div class='comment border-app'>"
+								item += "<div class='comment border-app d-block-sm'>"
 							}
 								item += "<div class='alter-header-comment'>"
 								item += "<span><i class='fas fa-calendar'></i> "+json[i].fecha+"</span>"
@@ -634,8 +787,9 @@
 								item += "</div>"
 								item += "<div class='in-fin'>"
 									item += "<span><i class='far fa-flag'></i> "+json[i].iniciado+"</span>"
-									item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].fecesti+"</span>"
+									item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].estimado+"</span>"
 								item += "</div>"
+								item += "<div><i class='fas fa-cubes'></i> "+json[i].app+"</div>"
 							item += "</div>"
 							/*comentario*/
 							if (i == (json.length-1)) {
@@ -645,22 +799,22 @@
 							}
 						}else {
 							item += "</div>"
-							item += "<div class='div-bot'><span class='chv-up'><i class='fas fa-chevron-circle-up'></i></span></div>"
+							item += "<div class='rounded-bottom div-bot'><span class='chv-up'><i class='fas fa-chevron-circle-up'></i></span></div>"
 							item += "</div>"
 							admin = json[i].admin
 							item += "<div class='com-padre'>"
-								item += "<div class='h-com rounded-top' style='display: flex;justify-content: space-between;background: darkmagenta;padding: 0px 5px;'>"
+								item += "<div class='h-com rounded-top'>"
 									item += "<span>"+json[i].nomadmin+"</span>"
 									item += "<span class='chv-dw' style='display:none;'><i class='fas fa-chevron-circle-down'></i></span>"
 								item += "</div>"
-								item += "<div class='com-hijo' style='display:none;color:black;background: white;'>"
+								item += "<div class='com-hijo'>"
 								/*comentario*/
 								if (json[i].tipo == 1) {
-									item += "<div class='comment border-suggest'>"
+									item += "<div class='comment border-suggest d-block-sm'>"
 								}else if(json[i].tipo == 2) {
-									item += "<div class='comment border-bug'>"
+									item += "<div class='comment border-bug d-block-sm'>"
 								}else {
-									item += "<div class='comment border-app'>"
+									item += "<div class='comment border-app d-block-sm'>"
 								}
 									item += "<div class='alter-header-comment'>"
 									item += "<span><i class='fas fa-calendar'></i> "+json[i].fecha+"</span>"
@@ -685,8 +839,9 @@
 									item += "</div>"
 									item += "<div class='in-fin'>"
 										item += "<span><i class='far fa-flag'></i> "+json[i].iniciado+"</span>"
-										item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].fecesti+"</span>"
+										item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].estimado+"</span>"
 									item += "</div>"
+									item += "<div><i class='fas fa-cubes'></i> "+json[i].app+"</div>"
 								item += "</div>"
 								/*comentario*/
 							if (i == (json.length-1)) {
@@ -697,44 +852,43 @@
 						}
 					}
 					item += "</div>"
-
-					$('#adm-exe').html(item)
-					$('.parraf').on('click',function(){
-						if ($(this).children('.dots').hasClass('active')) {
-							$(this).children('.dots').removeClass('active')
-							$(this).children('.rest').addClass('active')
-						}else {
-							$(this).children('.rest').removeClass('active')
-							$(this).children('.dots').addClass('active')
-						}
-					})
-					$('.chv-dw').on('click',function(){
-						var div = $(this).parent()
-						var padre = div.parent()
-						$(this).fadeOut()
-						div.removeClass('rounded-sm')
-						div.addClass('rounded-top')
-						padre.find('.com-hijo').show('slide',{direction:'up'},400,function(){
-							padre.find('.div-bot').fadeIn()
-						})
-					})
-					$('.chv-up').on('click',function(){
-						var div = $(this).parent()
-						var padre = div.parent()
-						padre.find('.div-bot').fadeOut()
-						padre.find('.com-hijo').hide('slide',{direction:'up'},400,function(){
-							padre.find('.chv-dw').fadeIn()
-							padre.find('.h-com').removeClass('rounded-top')
-							padre.find('.h-com').addClass('rounded-sm')
-						})
-					})
-					$('.nom-tool').tooltip()
 				}else {
 					item += "<div class='empty-div'>"
 					item += "<i class='far fa-comments fa-3x'></i>"
 					item += "<span>Los administradores se encuentran libres</span>"
 					item += "</div>"
 				}
+				$('#adm-exe').html(item)
+				$('.parraf').on('click',function(){
+					if ($(this).children('.dots').hasClass('active')) {
+						$(this).children('.dots').removeClass('active')
+						$(this).children('.rest').addClass('active')
+					}else {
+						$(this).children('.rest').removeClass('active')
+						$(this).children('.dots').addClass('active')
+					}
+				})
+				$('.chv-dw').on('click',function(){
+					var div = $(this).parent()
+					var padre = div.parent()
+					$(this).fadeOut()
+					div.removeClass('rounded-sm')
+					div.addClass('rounded-top')
+					padre.find('.com-hijo').show('slide',{direction:'up'},400,function(){
+						padre.find('.div-bot').fadeIn()
+					})
+				})
+				$('.chv-up').on('click',function(){
+					var div = $(this).parent()
+					var padre = div.parent()
+					padre.find('.div-bot').fadeOut()
+					padre.find('.com-hijo').hide('slide',{direction:'up'},400,function(){
+						padre.find('.chv-dw').fadeIn()
+						padre.find('.h-com').removeClass('rounded-top')
+						padre.find('.h-com').addClass('rounded-sm')
+					})
+				})
+				$('.nom-tool').tooltip()
 			}else {
 				window.location.href = 'index.php'
 			}
@@ -750,14 +904,14 @@
 					item += "<div class='content-div'>"
 					for (let i = 0; i < json.length; i++) {
 						if (json[i].anulado == 1) {
-							item += "<div class='comment border-anulado'>"
+							item += "<div class='comment border-anulado d-block-sm'>"
 						}else {
 							if (json[i].tipo == 1) {
-								item += "<div class='comment border-suggest'>"
+								item += "<div class='comment border-suggest d-block-sm'>"
 							}else if(json[i].tipo == 2) {
-								item += "<div class='comment border-bug'>"
+								item += "<div class='comment border-bug d-block-sm'>"
 							}else {
-								item += "<div class='comment border-app'>"
+								item += "<div class='comment border-app d-block-sm'>"
 							}
 						}
 						if ($('.libre').hasClass('active')) {
@@ -808,7 +962,8 @@
 							item += "<span class='duration'>"+json[i].transcurrido+" días pasaron</span>"
 							item += "</div>"
 						}else {
-							item += "<div class='footer-comment' style='justify-content: flex-end;'>"
+							item += "<div class='footer-comment' style='align-items: flex-end;'>"
+							item += "<span><i class='fas fa-cubes'></i> "+json[i].app+"</span>"
 							item += "<button type='button' class='btn btn-danger btn-sm act-det' value='"+json[i].codcoment+"@"+json[i].fecha+"@"+json[i].usuario+"'><i class='fas fa-clipboard-list'></i> DETALLE</button>"
 							item += "</div>"
 						}
@@ -818,11 +973,11 @@
 				}else {
 					item += "<div class='empty-div'>"
 					item += "<i class='far fa-comments fa-3x'></i>"
-					item += "<span>No tiene comentarios</span>"
+					item += "<span>No se encontraron comentarios</span>"
 					item += "</div>"
 				}
-				(month != 0 && year != 0) ? $('#coment-body').html(item) : $('#disponible').html(item)
-				
+				//(month != 0 && year != 0) ? $('#coment-body').html(item) : $('#disponible').html(item)
+				$('#disponible').html(item)
 				$('.parraf').on('click',function(){
 					if ($(this).children('.dots').hasClass('active')) {
 						$(this).children('.dots').removeClass('active')
@@ -840,10 +995,13 @@
 					detalleTomar($(this).val(),0)
 				})
 				if (month != 0 && year != 0) {
-					$('#com-titulo').text('Comentarios anteriores')
+					//$('#com-titulo').text('Comentarios anteriores')
+					$('.title').removeClass('active')
+					$('.title.otros').addClass('active')
 					$('#anho')[0].selectedIndex = 0
 					$('#mes')[0].selectedIndex = 0
-					$('#comentarios').modal('show')
+					$('.modal').modal('hide')
+					//$('#comentarios').modal('show')
 				}
 			}else {
 				window.location.href = 'index.php'
@@ -860,14 +1018,14 @@
 					item += "<div class='content-div'>"
 					for (let i = 0; i < json.length; i++) {
 						if (json[i].anulado == 1) {
-							item += "<div class='comment border-anulado'>"
+							item += "<div class='comment border-anulado' style='flex-direction:row;'>"
 						}else {
 							if (json[i].tipo == 1) {
-								item += "<div class='comment border-suggest' style='display:flex;'>"
+								item += "<div class='comment border-suggest'>"
 							}else if(json[i].tipo == 2) {
-								item += "<div class='comment border-bug' style='display:flex;'>"
+								item += "<div class='comment border-bug' style='flex-direction:row;'>"
 							}else {
-								item += "<div class='comment border-app' style='display:flex;'>"
+								item += "<div class='comment border-app' style='flex-direction:row;'>"
 							}
 						}
 						item += "<div style='flex-grow:1;display: flex;flex-direction: column;'>"
@@ -880,7 +1038,7 @@
 								const first = json[i].descrip.substring(0,134)
 								item += "<p class='parraf'>"+first+"...</p>"
 							}else {
-								item += "<p class='parraf' style='flex-grow:1;'>"+json[i].descrip+"</p>"
+								item += "<p class='parraf'>"+json[i].descrip+"</p>"
 							}
 							if (json[i].estado != 'REVISADO') {
 								item += "<div class='progress prog-cus'>"
@@ -894,15 +1052,15 @@
 								item += "</div>"
 								item += "<div class='in-fin'>"
 									item += "<span><i class='far fa-flag'></i> "+json[i].iniciado+"</span>"
-									item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].fecesti+"</span>"
+									item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].estimado+"</span>"
 								item += "</div>"
 							}
-							item += "<div><div class='duration'>"+json[i].transcurrido+" días transcurridos desde que se genero</div></div>"
+							item += "<div class='duration'>"+json[i].transcurrido+" días transcurridos desde que se genero</div>"
 						item += "</div>"
 						item += "<div style='display: flex;flex-direction: column;'>"
-							item += "<button type='button' class='btn btn-danger btn-apilado' value='"+json[i].usuario+"@"+json[i].codcoment+"'><i class='fas fa-trash-alt'></i></button>"
-							item += "<button type='button' class='btn btn-primary btn-apilado' value='"+json[i].codcoment+"@"+json[i].fecha+"@"+json[i].usuario+"'><i class='fas fa-address-card'></i></button>"
-							item += "<button type='button' class='btn btn-success btn-apilado' value='"+json[i].codcoment+"@"+json[i].fecha+"@"+json[i].usuario+"'><i class='fas fa-cogs'></i></button>"
+							item += "<button type='button' class='btn btn-danger btn-apilado anular' value='"+json[i].usuario+"@"+json[i].codcoment+"'><i class='fas fa-trash-alt'></i></button>"
+							item += "<button type='button' class='btn btn-primary btn-apilado detalle' value='"+json[i].codcoment+"@"+json[i].fecha+"@"+json[i].usuario+"'><i class='fas fa-address-card'></i></button>"
+							item += "<button type='button' class='btn btn-success btn-apilado accion' value='"+json[i].codcoment+"@"+json[i].fecha+"@"+json[i].usuario+"'><i class='fas fa-cogs'></i></button>"
 						item +="</div>"
 						item += "</div>"
 					}
@@ -910,22 +1068,21 @@
 				}else {
 					item += "<div class='empty-div'>"
 					item += "<i class='far fa-comments fa-3x'></i>"
-					item += "<span>No tiene comentarios</span>"
+					item += "<span>No se encontraron comentarios</span>"
 					item += "</div>"
 				}
 
-				(month != 0 && year != 0) ? $('#coment-body').html(item) : $('#tomado').html(item)
-
+				//(month != 0 && year != 0) ? $('#coment-body').html(item) : $('#tomado').html(item)
+				$('#tomado').html(item)
 				$('.nom-tool').tooltip()
 				$('.opciones').hide()
 				$('.btn-apilado').on('click',function(){
-					var img = $(this).children()
-					if (img.hasClass('fa-trash-alt')) {
+					if ($(this).hasClass('anular')) {
 						$('#preview').hide()
 						$('#anul-coment').show()
 						$('#misc').modal('show')
 						$('#aceptar').prop('value',$(this).val())
-					}else if (img.hasClass('fa-address-card')){
+					}else if ($(this).hasClass('detalle')){
 						detalleTomar($(this).val(),1)
 					}else {
 						let item = "<span>"+$(this).val().split("@")[1]+"</span>"
@@ -933,17 +1090,21 @@
 						item += "<i class='fas fa-times' data-dismiss='modal'></i>"
 						$('#opc-head').html(item)
 						$('#sele-opc')[0].selectedIndex = 0
-						$('#opc-dias').hide()
+						$('#opc-estimado').hide()
+						$('#opc-coment').hide()
 						$('#opc-btn').prop('value',$(this).val())
 						$('#opc-tom').modal('show')
 					}
 				})
 				
 				if (month != 0 && year != 0) {
-					$('#com-titulo').text('Comentarios concluidos')
+					//$('#com-titulo').text('Comentarios concluidos')
+					$('.title').removeClass('active')
+					$('.title.finalizados').addClass('active')
 					$('#anho')[0].selectedIndex = 0
 					$('#mes')[0].selectedIndex = 0
-					$('#comentarios').modal('show')
+					$('.modal').modal('hide')
+					//$('#comentarios').modal('show')
 				}
 			}else {
 				window.location.href = 'index.php'
@@ -952,12 +1113,12 @@
 	}
 	function detalleTomar(data,tipo){
 		$.post('obtenerDetalle.php',{opcion:1,parametros:data},function(e){
-			console.log(e)
 			if (e != '0') {
 				let item = ""
 				const json = JSON.parse(e)
 				const img = json['imagenes']
 				item += "<div style='margin-bottom: 10px;'>"
+				item += "<span><i class='fas fa-cubes'></i> "+json['app']+"</span>"
 				item += "<div class='detail-content'>"
 				item += "<span>"+json['usuario']+" - "+json['nomusu']+"</span>"
 				item += "</div>"
@@ -971,14 +1132,14 @@
 				item += "</div>"
 				item += "</div>"
 				if (img.length > 0) {
-					item += "<div class='grid-items' style='justify-content: center;'>"
+					item += "<div class='grid-images' style='justify-content: center;'>"
 					for(var i=0; i<img.length; i++){
 						item += "<img class='img-prev' src='"+img[i]+"'></img>"
 					}
 					item += "</div>"
 				}
 				if (tipo == 0) {
-					item += "<div class='grid-items' style='justify-content:space-around;margin-top:20px;'>"
+					item += "<div class='grid-images' style='justify-content:space-around;margin-top:20px;'>"
 					item += "<button id='anular' type='button' class='btn btn-danger btn-sm'><i class='fas fa-ban'></i> ANULAR</button>"
 					item += "<button id='tomar' type='button' class='btn btn-info btn-sm'><i class='fas fa-plus-circle'></i> TOMAR</button>"
 					item += "</div>"
@@ -1012,6 +1173,7 @@
 				let item = ""
 				const json = JSON.parse(e)
 				item += "<div style='display: flex;flex-direction: column;margin: 0px 15px;font-weight: 100'>"
+					item += "<span style='margin-bottom:5px;'><i class='fas fa-cubes'></i> "+json['app']+"</span>"
 					item += "<div style='display: flex;justify-content: space-between;margin-bottom:5px;'>"
 						item += "<span><i class='fas fa-hashtag'></i> "+json['codcoment']+"</span>"
 						item += "<span><i class='fas fa-calendar-day'></i> "+json['fecha']+"</span>"
@@ -1044,7 +1206,7 @@
 							item += "<div style='display: flex;justify-content: space-between;align-items: center;'>"
 								item += "<span><i class='far fa-flag'></i> "+json['iniciado']+"</span>"
 								item += "<i class='fas fa-angle-double-right'></i>"
-								item += "<span><i class='fas fa-flag-checkered'></i> "+json['fecesti']+"</span>"
+								item += "<span><i class='fas fa-flag-checkered'></i> "+json['estimado']+"</span>"
 							item += "</div>"
 						}
 						if (json['finalizado'] != 0) {
@@ -1084,8 +1246,10 @@
 	    reader.readAsDataURL(inputFile)
 	}
 	function clearFields(){
-		$('.title-comment').val('')
-		$('.descrip-comment').val('')
+		//$('.title-comment').val('')
+		//$('.descrip-comment').val('')
+		$('.form-field').val('')
+		$('#app-com')[0].selectedIndex = 0
 		$('.type-button').removeClass('active')
 		$(document).find('.content-upload').remove()
 	}
@@ -1149,13 +1313,25 @@
 	}
 	</script>
 	<style>
+		body, button {
+			font-family: 'Nunito', sans-serif !important;
+			font-weight: 600 !important;
+		}
 		.no-padding {
 			padding-right: 0px !important;
 			padding-left: 0px !important; 
 		}
-		body, button {
-			font-family: 'Nunito', sans-serif !important;
-			font-weight: 600 !important;
+		.d-md-lg {
+			display: none;
+		}
+		.dimen-nav {
+			background: white;
+		}
+		.dimen-content {
+			transition: all .6s ease;
+		}
+		.fa-rocket,.let-small.active,.opt-link.active {
+			color: red;
 		}
 		.dots.active,.rest.active {
 			display: inline;
@@ -1172,7 +1348,7 @@
 			align-items: center;
 		}
 		.padd {
-			padding: 1rem 1rem 1rem 1rem;
+			padding: 1rem;
 		}
 		.m8-l {
 			margin-left: .8rem;
@@ -1206,73 +1382,6 @@
 		.border-anulado {
 			border: 3px solid #5803e0;
 		}
-		/*PRINCIPAL: #29a17b
-		SECUNDARIO: #57c2a0*/
-		.imagePreview {
-		    width: 100%;
-		    height: 180px;
-		    background-position: center center;
-		  background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
-		  background-color:#fff;
-		    background-size: cover;
-		  background-repeat:no-repeat;
-		    display: inline-block;
-		  box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
-		}
-		/*.btn-primary
-		{
-		  display:block;
-		  border-radius:0px;
-		  box-shadow:0px 4px 6px 2px rgba(0,0,0,0.2);
-		  margin-top:-5px;
-		}*/
-		.imgUp
-		{
-		  margin-bottom:15px;
-		}
-		.del
-		{
-		  position:absolute;
-		  top:0px;
-		  right:15px;
-		  width:30px;
-		  height:30px;
-		  text-align:center;
-		  line-height:30px;
-		  background-color:rgba(255,255,255,0.6);
-		  cursor:pointer;
-		}
-		.imgAdd
-		{
-		  width:30px;
-		  height:30px;
-		  border-radius:50%;
-		  background-color:#4bd7ef;
-		  color:#fff;
-		  box-shadow:0px 0px 2px 1px rgba(0,0,0,0.2);
-		  text-align:center;
-		  line-height:30px;
-		  margin-top:0px;
-		  cursor:pointer;
-		  font-size:15px;
-		}
-		.chip {
-		  display: inline-block;
-		  padding: 0 25px;
-		  height: 50px;
-		  font-size: 16px;
-		  line-height: 50px;
-		  border-radius: 25px;
-		  background-color: #f1f1f1;
-		}
-		.chip i {
-		  float: left;
-		  margin: 0 10px 0 -25px;
-		  height: 50px;
-		  width: 50px;
-		  border-radius: 50%;
-		}
-
 		.border-cus {
 			border: unset;
 			border-radius: unset;
@@ -1289,7 +1398,232 @@
 			border-top-left-radius: .5rem;
     		border-top-right-radius: .5rem;
 		}
-
+		.gotop {
+			position: fixed;
+			bottom: 30px;
+			right: 20px;
+			width: 30px;
+			height: 30px;
+			background: #e74c3c;
+			color: white;
+			border: none;
+			cursor: pointer;
+			border-radius: 30px;
+		}
+		.order-title {
+			background: #57baf1;
+		}
+		.title.active {
+	    	color: black;
+	    	background: white;
+			border: 0px;
+		}
+		.comment {
+			display: flex;
+		    background: white;
+		    font-size: .8rem;
+		    border-radius: 5px;
+		    box-shadow: 2px 2px 5px #b5b5b5;
+		    margin-top: 20px;
+		}
+		.comment-dots.active {
+			color: #ffffff;
+		    background: #007bff;
+		    border: unset;
+		}
+		.laptop.active {
+			color: #ffffff;
+		    background: #ff9f00;
+		    border: unset;
+		}
+		.bug.active {
+			color: #ffffff;
+		    background: #dc3545;
+		    border: unset;
+		}
+		.header-comment {
+			display: flex;
+		    justify-content: space-between;
+		    margin: 5px 10px;
+		    align-items: center;
+		}
+		.alter-header-comment {
+			display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		    color: white;
+		    background: #2e8b8b;
+		    padding: 5px 10px;
+		    font-weight: 100 !important;
+		}
+		.parraf {
+			text-align: justify;
+			font-weight: 100;
+			margin: 5px 10px;
+			flex-grow: 1;
+		}
+		.prog-cus {
+			font-weight: 100;
+			margin: 0px 5px;
+		}
+		.footer-comment {
+			display: flex;
+		    justify-content: space-between;
+		    margin: 5px 10px;
+		    align-items: center;
+		}
+		.btn:hover {
+			color: white;
+			outline:0px !important;
+		    -webkit-appearance:none;
+		    box-shadow: none !important;
+		}
+		.btn-cus {
+			width: 100%;
+		    margin: 20px 30px;
+		    font-size: 1.6rem;
+			background-color: #ff7458;
+			color: white;
+			border-width: 1px;
+			border-radius: .5rem;
+			border-color: rgba(0,0,0,0.2);
+		}
+		.btn-depth {
+		    box-shadow: inset 0 1px 0 rgba(255,255,255,0.0125), 0 1px 1px rgba(0,0,0,0.05);
+		    border-top-width: .0625rem;
+		    border-bottom-width: calc(.2rem + .0625rem);
+		    transition: all .5s ease;
+		}
+		.btn-depth:active {
+			box-shadow: 0 1px 1px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.0125);
+		    border-bottom-width: .0625rem;
+		    border-top-width: calc(.2rem + .0625rem);
+		}
+		.modal-btn-cus {
+			margin: 5px 10px;
+    		font-size: .8rem;
+		}
+		.m5-tb {
+			margin-top: .5rem;
+			margin-bottom: .5rem;
+		}
+		.grid-images {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.content-upload {
+			display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    align-items: center;
+		    width: 120px;
+			height: 200px;
+			margin: 10px 9px;
+		    border: 1px solid black;
+		}
+		.img-upload {
+			width: 120px;
+			height: 170px;
+			padding: 5px;
+		}
+		.btn-remove {
+			width: 120px;
+		    text-align: center;
+		    background-color: #dc3545;
+		    color: #ffffff;
+		    font-size: 1.25rem;
+		    border-top: 1px solid black;
+		}
+		.btimg-edit {
+			display: flex;
+		    align-items: center;
+		    width: 120px;
+		}
+		.buton-img {
+			margin-bottom: unset;
+		    display: flex;
+		    width: 100px;
+		    margin: 10px 9px;
+		    flex-direction: column;
+		    text-align: center;
+		    align-items: center;
+		    border: 1px solid black;
+			border-radius: 5px;
+		}
+		.upload-image {
+			width: 0px;
+			height: 0px;
+			overflow: hidden;
+		}
+		.title-uni {
+			width: 100%;
+			color: lightgray;
+    		border-bottom: 2px inset lightgray;
+		}
+		.h-com {
+			display: flex;
+			justify-content: space-between;
+			background: #1578a7;
+			padding: 0px 5px;
+		}
+		.com-padre {
+			color: white;
+		    margin-bottom: 10px;
+		}
+		.div-bot {
+			text-align: right;
+			background: #1578a7;
+			margin-top: 10px;
+			padding: 0px 5px;
+		}
+		.com-hijo {
+			color:black;
+			background: white;
+		}
+		.in-fin {
+			display: flex;
+		    margin: 2px 5px;
+		    justify-content: space-between;
+		}
+		.detail-content {
+			display: flex;
+			justify-content: space-between;
+			margin: 5px;
+		}
+		.cus-content {
+			border: 1px solid lightgray;
+		    padding: 5px;
+		    border-radius: 5px;
+		}
+		.btn-apilado {
+			flex-grow:1;
+			border-radius:unset;
+		}
+		.img-prev {
+			width: 100px;
+			height: 100px;
+			padding: 5px;
+			margin: 0px 5px;
+			border: 1px solid lightgray;
+		}
+		.empty-div {
+			display: flex;
+			height: 200px;
+			margin: 10px 20px 0px 20px;
+		    flex-direction: column;
+		    text-align: center;
+		    justify-content: center;
+		    align-items: center;
+		}
+		.modal-body {
+			font-weight: 100 !important;
+		}
+		.disponible.active,.tomado.active,.comentario.active,.realizandose.active {
+			display: block;
+		}
+		.disponible,.tomado,.comentario,.realizandose {
+			display: none;
+		}
 		/* Small devices (phones, 768px and down) */
 		@media only screen and (max-width: 768px) {
 			body {
@@ -1299,33 +1633,18 @@
 				justify-content: space-between !important;
 				align-items: center;
 			}
-			.div-bot {
-				text-align: right;
-				background: darkmagenta;
-				margin-top: 10px;
-				padding: 0px 5px;
-			}
-			.com-padre {
-				color: white;
-			    margin-bottom: 10px;
-			}
-			.modal-body {
-				font-weight: 100 !important;
-			}
-			.modal-title {
-				display: contents;
-			}
 			.navbar-brand {
 			    font-size: .9rem;
+			}
+			.order-title {
+				display: flex;
+				padding: 10px 30px 0px 30px;
 			}
 			.no-border {
 				border-color: rgba(0,0,0,0) !important;
 			}
 			.d-sm {
 				display: none;
-			}
-			.fa-rocket,.let-small.active {
-				color: red;
 			}
 			.fa-bars {
 				color: black;
@@ -1335,57 +1654,13 @@
 				display: grid; 
     			justify-items: center;
 			}
-			.btn:hover {
-				color: white;
-				outline:0px !important;
-			    -webkit-appearance:none;
-			    box-shadow: none !important;
-			}
-			.btn-cus {
-				width: 100%;
-			    margin: 20px 30px;
-			    font-size: 1.6rem;
-				background-color: #ff7458;
-				color: white;
-				border-width: 1px;
-				border-radius: .5rem;
-				border-color: rgba(0,0,0,0.2);
-			}
-			.btn-depth {
-			    box-shadow: inset 0 1px 0 rgba(255,255,255,0.0125), 0 1px 1px rgba(0,0,0,0.05);
-			    border-top-width: .0625rem;
-			    border-bottom-width: calc(.2rem + .0625rem);
-			    transition: all .5s ease;
-			}
-			.btn-depth:active {
-				box-shadow: 0 1px 1px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.0125);
-			    border-bottom-width: .0625rem;
-			    border-top-width: calc(.2rem + .0625rem);
-			}
 			.dimen-nav {
 				padding: 0rem 1rem;
-				background: white;
-			}
-			.comment {
-			    background: white;
-			    font-size: .8rem;
-			    border-radius: 5px;
-			    box-shadow: 2px 2px 5px #b5b5b5;
-			    margin-top: 20px;
-			}
-			.parraf {
-				text-align: justify;
-    			font-weight: 100;
-    			margin: 5px 10px;
 			}
 			.duration {
 				font-size: .7rem;
 			    font-weight: 100;
 			    color: gray;
-			}
-			.m5-tb {
-				margin-top: .5rem;
-				margin-bottom: .5rem;
 			}
 			.m20-tb {
 				margin-top: 2rem;
@@ -1393,141 +1668,21 @@
 			}
 			.dimen-content {
 				padding: 1rem 1rem;
-				transition: all .6s ease;
 			}
 			.dir-marg {
 				flex-direction: row;
 				margin-top: 10px;
 				justify-content: center;
 			}
-			.laptop.active {
-				color: #ffffff;
-			    background: #ff9f00;
-			    border: unset;
-			}
-			.bug.active {
-				color: #ffffff;
-			    background: #dc3545;
-			    border: unset;
-			}
-			.comment-dots.active {
-				color: #ffffff;
-			    background: #007bff;
-			    border: unset;
-			}
-			.content-upload {
-				display: flex;
-			    flex-direction: column;
-			    justify-content: center;
-			    align-items: center;
-			    width: 120px;
-				height: 200px;
-    			margin: 10px 9px;
-			    border: 1px solid black;
-			}
-			.img-upload {
-				width: 120px;
-				height: 170px;
-				padding: 5px;
-			}
-			.img-prev {
-				width: 100px;
-				height: 100px;
-				padding: 5px;
-				margin: 0px 5px;
-				border: 1px solid lightgray;
-			}
-			.btn-remove {
-				width: 120px;
-			    text-align: center;
-			    background-color: #dc3545;
-			    color: #ffffff;
-			    font-size: 1.25rem;
-			    border-top: 1px solid black;
-			}
-			.btimg-edit {
-				display: flex;
-			    align-items: center;
-			    width: 120px;
-			}
-			.buton-img {
-				margin-bottom: unset;
-			    display: flex;
-			    width: 100px;
-			    margin: 10px 9px;
-			    flex-direction: column;
-			    text-align: center;
-			    align-items: center;
-			    border: 1px solid black;
-    			border-radius: 5px;
-			}
-			.upload-image {
-				width: 0px;
-				height: 0px;
-				overflow: hidden;
-			}
-			.grid-items {
-				display: flex;
-				flex-wrap: wrap;
-				justify-content: space-between;
-			}
-			.header-comment {
-				display: flex;
-			    justify-content: space-between;
-			    margin: 5px 10px;
-			    align-items: center;
-			}
-			.alter-header-comment {
-				display: flex;
-			    justify-content: space-between;
-			    align-items: center;
-			    color: white;
-			    background: #2e8b8b;
-			    padding: 5px 10px;
-			    font-weight: 100 !important;
-			}
-			.footer-comment {
-				display: flex;
-			    justify-content: space-between;
-			    margin: 5px 10px;
-			    align-items: center;
-			}
-			.alter-footer-comment {
-				display: flex;
-			    justify-content: flex-end;
-			    padding: 5px;
-			    border-top: 1px solid lightgray;
-			}
-			.order-title {
-				display: flex;
-				padding: 10px 30px 0px 30px;
-			}
 			.user_type {
 				font-size: .75rem;
 			}
 			.title {
-				color: lightgray;
-	    		border-bottom: 2px inset lightgray;
-			}
-			.title.active {
-				color: black;
-			}
-			.title-l {
-				width: 70%;
-			}
-			.title-r {
-				width: 30%;
-				color: red;
-				text-align: end;
-			}
-			.empty-div {
-				display: flex;
-				height: 200px;
-				margin: 10px 20px 0px 20px;
-			    flex-direction: column;
-			    text-align: center;
-			    justify-content: center;
-			    align-items: center;
+	    		color: white;
+			    border-bottom: 0px;
+			    padding: 10px 10px 0px 10px;
+			    border-top-left-radius: 5px;
+			    border-top-right-radius: 5px;
 			}
 			.content-div {
 				display: flex;
@@ -1537,28 +1692,6 @@
 			    text-align: center;
 			    justify-content: center;
 			}
-			.disponible.active,.tomado.active,.comentario.active,.realizandose.active {
-				display: block;
-			}
-			.disponible,.tomado,.comentario,.realizandose {
-				display: none;
-			}
-			.prog-cus {
-				font-weight: 100;
-    			margin: 0px 5px;
-			}
-			.gotop {
-				position: fixed;
-				bottom: 30px;
-				right: 20px;
-				width: 30px;
-				height: 30px;
-				background: #e74c3c;
-				color: white;
-				border: none;
-				cursor: pointer;
-				border-radius: 30px;
-			}
 			.m-content {
 				margin: 0px 50px;
 			}
@@ -1566,10 +1699,6 @@
 				display: flex;
 			    padding: .5rem;
 			    flex-direction: column; 
-			}
-			.modal-btn-cus {
-				margin: 5px 10px;
-    			font-size: .8rem;
 			}
 			.edit-estado {
 				background: #c62be2;
@@ -1579,16 +1708,6 @@
 			.edit-content {
 				display: flex;
     			flex-direction: column;
-			}
-			.detail-content {
-				display: flex;
-				justify-content: space-between;
-				margin: 5px;
-			}
-			.cus-content {
-				border: 1px solid lightgray;
-			    padding: 5px;
-			    border-radius: 5px;
 			}
 			.edit-text {
 				text-align: center;
@@ -1606,38 +1725,109 @@
 			    margin-top: 10px;
 			    padding: 5px;
 			}
-			.in-fin {
-				display: flex;
-			    margin: 2px 5px;
-			    justify-content: space-between;
-			}
-			.btn-apilado {
-				flex-grow:1;
-				border-radius:unset;
+			.d-block-sm {
+				display: block;
 			}
 		}
 
 		/* Medium devices (landscape tablets, 768px and up) */
-		@media only screen and (min-width: 768px) {
+		/*@media only screen and (min-width: 768px) {
 			.dimen {
-				padding: 1.1rem 5rem 1.1rem 5rem;
+				padding: 1.1rem 5rem;
 			}
-			.dimen-size {
-			    margin-left: auto;
-			    margin-right: auto;
-			    max-width: 95.36743rem;
-			}
-		}
+		}*/
 
 		/* Large devices (large laptops and desktops, 1200px and up) */
-		@media only screen and (min-width: 1200px) {
-			.dimen {
+		/*@media only screen and (min-width: 1200px) {*/
+		@media only screen and (min-width: 768px) {
+			body {
+				background: url('resources/images/fondo.jpg') no-repeat center center fixed;
+			  	background-size: cover;
+			  	min-height: 100%;
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+			}
+			.body-lg {
+				height: 100vh;
+    			background: rgb(87,186,241);
+			}.dimen {
 				padding: 1.1rem 5rem 1.1rem 5rem;
 			}
-			.dimen-size {
-			    margin-left: auto;
-			    margin-right: auto;
-			    max-width: 95.36743rem;
+			.navbar {
+				padding: 0rem 0rem;
+			}
+			.opt-link {
+				padding: .3rem .3rem;
+				color: rgba(0,0,0,.8);
+			}
+			.opt-link:hover {
+				color: red;
+				text-decoration: none;
+			}
+			.let-large {
+				display: flex;
+			    flex-direction: column;
+			    align-items: center;
+			}
+			.order-title {
+				display: flex;
+				flex-direction: column;
+			}
+			.content-div {
+				padding: 10px;
+				display: flex;
+				flex-wrap: wrap;
+				text-align: center;
+			}
+			.title {
+				color: white;
+				padding: 20px 10px;
+				border-top-left-radius: 5px;
+				border-bottom-left-radius: 5px;
+			}
+			.gotop {
+				bottom: 50px;
+			    right: 40px;
+			    width: 50px;
+			    height: 50px;
+			}
+			.disponible,.tomado,.comentario,.realizandose {
+				background: #57baf1;
+			}
+			.comment {
+				flex-direction: column;
+				width: 400px;
+				margin: 5px;
+			}
+			.img-upload,.content-upload,.btn-remove {
+				width: 170px;
+			}
+			.padd {
+				padding: 1rem 10rem;
+			}
+			.sc-lg {
+				padding: 0rem 5rem;
+			}
+			.title-uni {
+				padding: 10px 30px 0px;
+			}
+			.pad-cus {
+				padding: 0px 30px 10px;
+			}
+			.com-hijo {
+				display: flex;
+				flex-wrap: wrap;
+				padding-left: 30px;
+			}
+			.d-flex-lg {
+				display: flex;
+			}
+			.lg-empty {
+				width: -moz-available;
+				width: -webkit-fill-available;
+    			justify-content: center;
+    			align-self: center;
 			}
 		}
 	</style>

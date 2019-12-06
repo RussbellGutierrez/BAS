@@ -44,9 +44,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,900&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="container-fluid no-padding">
+	<div class="container container-fluid no-padding body-lg">
 		<div class="dimen dimen-nav">
-			<nav class="navbar navbar-expand-lg navbar-light dimen-size">
+			<nav class="navbar navbar-expand-lg navbar-light">
 				<a class="navbar-brand" href="#">
 					<div class="ali-items">
 						<i class="fas fa-rocket fa-2x"></i>
@@ -62,69 +62,118 @@
 			  <div class="collapse navbar-collapse" id="navbarMobile">
 			    <ul class="navbar-nav mr-auto dir-marg">
 			      <li class="nav-item ali-items m10-lr nvc">
-			      	<div class="let-small n-avance active">
+			      	<div class="d-md-lg let-small n-avance active">
 			      		<i class="fas fa-chart-line fa-2x"></i>
 			      		<span>AVANCE</span>
 			      	</div>
-			        <a class="nav-link d-sm" href="#">AVANCE</a>
+			      	<a class="d-sm opt-link n-avance active" href="#">
+			      		<div class="let-large">
+			      			<i class="fas fa-chart-line fa-2x"></i>
+			      			<span>AVANCE</span>
+			      		</div>
+			      	</a>
 			      </li>
 			      <li class="nav-item ali-items m10-lr nvc">
-			      	<div class="let-small n-comentario">
+			      	<div class="d-md-lg let-small n-comentario">
 			      		<i class="far fa-comment-alt fa-2x"></i>
 			      		<span>COMENTARIO</span>
 			      	</div>
-			        <a class="nav-link d-sm" href="#">COMENTARIO</a>
+			      	<a class="d-sm opt-link n-comentario" href="#">
+			      		<div class="let-large">
+			      			<i class="far fa-comment-alt fa-2x"></i>
+			      			<span>COMENTARIO</span>
+			      		</div>
+			      	</a>
 			      </li>
-			      <li class="nav-item ali-items nvc">
-			      	<div class="let-small n-realizandose">
+			      <li class="nav-item ali-items m10-lr nvc">
+			      	<div class="d-md-lg let-small n-realizandose">
 			      		<i class="fas fa-glasses fa-2x"></i>
 			      		<span>REALIZANDOSE</span>
 			      	</div>
-			        <a class="nav-link d-sm" href="#">REALIZANDOSE</a>
+			      	<a class="d-sm opt-link n-realizandose" href="#">
+			      		<div class="let-large">
+			      			<i class="fas fa-glasses fa-2x"></i>
+			      			<span>REALIZANDOSE</span>
+			      		</div>
+			      	</a>
 			      </li>
 			      <li class="nav-item ali-items m10-lr">
-			      	<div class="let-small n-desconectar">
+			      	<div class="d-md-lg let-small n-desconectar">
 			      		<i class="fas fa-power-off fa-2x"></i>
 			      		<span>DESCONECTAR</span>
 			      	</div>
-			        <a class="nav-link d-sm" href="#">DESCONECTAR</a>
+			      	<a class="d-sm opt-link n-desconectar" href="#">
+			      		<div class="let-large">
+			      			<i class="fas fa-power-off fa-2x"></i>
+			      			<span>DESCONECTAR</span>
+			      		</div>
+			      	</a>
 			      </li>
 			    </ul>
 			  </div>
 			</nav>
 		</div>
 		<div class="avance dimen dimen-content active">
-			<div class="dimen-size bg-white-radi">
-				<div id="vigente"></div>
+			<div class="bg-white-radi d-flex-lg">
+				<div class="order-title">
+					<span class="title t-vig active">VIGENTES</span>
+					<span class="title t-otr">OTROS</span>
+				</div>
+				<div id="vigente" class="lg-empty"></div>
 				<button class="gotop"><i class="fas fa-arrow-up"></i></button>
 			</div>
 		</div>
 		<div class="comentario dimen dimen-content">
-			<div class="dimen-size bg-white-radi">
+			<div class="bg-white-radi">
 				<div class="padd">
 					<h1>Comentario</h1>
 					<div class="m5-tb">
 						<label>Titulo</label>
-					    <input type="text" class="form-control title-comment" placeholder="Titulo del comentario">
+					    <input id="title-com" type="text" class="form-control form-field" placeholder="Titulo del comentario">
 					</div>
 					<div class="m5-tb">
 						<label>Descripcion</label>
-				    	<textarea class="form-control descrip-comment" placeholder="Describa su comentario brevemente..."></textarea>
+				    	<textarea id="descrip-com" class="form-control form-field" placeholder="Describa su comentario brevemente..."></textarea>
 					</div>
+					<div class="form-group m5-tb">
+						<label>Seleccione aplicacion</label>
+			      		<select id="app-com" class="form-control" style="text-align-last: center;">
+			      			<option value="0">--APLICACION ASOCIADA--</option>
+			      			<option value="1">CUBOS</option>
+			      			<option value="2">PEDIMAP VENTAS</option>
+			      			<option value="3">PEDIMAP TRANSPORTE</option>
+			      			<option value="4">CONCAR</option>
+			      			<option value="5">INTELSOFT</option>
+			      			<option value="6">CHESS</option>
+			      			<option value="7">KVENTAS</option>
+			      			<option value="8">KTRANSPORTE</option>
+			      			<option value="9">MANTENIMIENTO</option>
+			      			<option value="10">CATALOGO</option>
+			      			<option value="11">IWOT</option>
+			      			<option value="12">BAS</option>
+			      			<option value="13">OTROS</option>
+			      		</select>
+			      	</div>
 					<div class="m5-tb">
 						<label>Tipo comentario</label>
 					    <div class="d-flex justify-content-center">
-					    	<div class="type-button comment-dots" value='1'>
-					    		<i class="far fa-comment-dots fa-2x"></i>
-					    		<span>Sugerencia</span>
+					    	<div class="type-button comment-dots" style="display: flex;align-items: center;" value='1'>
+					    		<div>
+					    			<i class="far fa-comment-dots fa-2x"></i>
+					    			<span>Sugerencia</span>
+					    		</div>
 					    	</div>
-					    	<div class="type-button bug" value='2'>
-					    		<i class="fas fa-bug fa-2x"></i>
-					    		<span>Problema</span>
+					    	<div class="type-button bug" style="display: flex;align-items: center;" value='2'>
+					    		<div>
+					    			<i class="fas fa-bug fa-2x"></i>
+					    			<span style="font-size: .8rem;">Problemas u Observaciones</span>
+					    		</div>
 					    	</div>
-					    	<div class="type-button laptop" value='3'>
-					    		<i class="fas fa-laptop-code fa-2x"></i>
-					    		<span>Aplicacion</span>
+					    	<div class="type-button laptop" style="display: flex;align-items: center;" value='3'>
+					    		<div>
+					    			<i class="fas fa-laptop-code fa-2x"></i>
+					    			<span>Peticion</span>
+					    		</div>
 					    	</div>
 					    </div>
 					</div>
@@ -136,14 +185,14 @@
 							</div>
 						</div>
 					</div>
-				    <div class="d-flex justify-content-center">
+				    <div class="d-flex justify-content-center sc-lg">
 				    	<button id="guardar" type="button" class="btn btn-cus btn-depth">Enviar comentario</a>
 				    </div>
 				</div>
 			</div>
 		</div>
 		<div class="realizandose dimen dimen-content">
-			<div class="dimen-size bg-white-radi">
+			<div class="bg-white-radi">
 				<div id="adm-exe">
 				</div>
 				<button class="gotop"><i class="fas fa-arrow-up"></i></button>
@@ -217,20 +266,6 @@
 	</div>
 	<script>
 		$(function() {
-			/*$('.chev-down').on('click',function(){
-				var padre = $(this).parent()
-				padre.find('.chv-dw').fadeOut()
-				padre.find('.childDiv').show('slide',{direction:'up'},400,function(){
-					padre.find('.chev-up').fadeIn()
-				})
-			})
-			$('.chev-up').on('click',function(){
-				var padre = $(this).parent()
-				padre.find('.chev-up').fadeOut()
-				padre.find('.childDiv').hide('slide',{direction:'up'},400,function(){
-					padre.find('.chv-dw').fadeIn()
-				})
-			})*/
 			$(".upload-image").change(imagenPreview)
 			var d = new Date().getFullYear()
 			let option = "<option value=0>--AÑO--</option>"
@@ -280,28 +315,78 @@
 					  cancelButtonText: 'No',
 					  confirmButtonText: 'Si'
 					}).then((result) => {
+						if (result.value) {
+							$.post('desconectar.php',function(e){
+						  		if (e == 0) {
+						  			Swal.fire('Error','Ocurrio un error durante el proceso','error')
+						  		}else {
+						  			window.location.href = "index.php"
+						  		}
+						  	})
+						}
+					})
+				}else {
+					$('.let-small').removeClass('active')
+					$(this).addClass('active')
+					if ($(this).hasClass('n-avance')) {
+						clearFields()
+						$('.title').removeClass('active')
+						$('.dimen-content').removeClass('active')
+						$('.avance.dimen-content').addClass('active')
+						$('.title.t-vig').addClass('active')
+						mensaje()
+						comentarios(0,0,0,0)
+					}
+					if($(this).hasClass('n-comentario')){
+						$('.dimen-content').removeClass('active')
+						$('.comentario.dimen-content').addClass('active')
+					}
+					if ($(this).hasClass('n-realizandose')) {
+						clearFields()
+						$('.dimen-content').removeClass('active')
+						$('.realizandose.dimen-content').addClass('active')
+						mensaje()
+						comentarioRealizandose()
+					}
+				}
+			})
+			$('.opt-link').on('click',function(){
+				if ($(this).hasClass('n-desconectar')) {
+					clearFields()
+					Swal.fire({
+					  title: 'Desconectar',
+					  text: "Seguro que quiere desconectarse?",
+					  type: 'warning',
+					  showCancelButton: true,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#d33',
+					  cancelButtonText: 'No',
+					  confirmButtonText: 'Si'
+					}).then((result) => {
 					  if (result.value) {
 					  $.post('desconectar.php',function(){window.location.href = "index.php"})	
 					  }
 					})
 				}else {
-					$(document).find('.let-small').removeClass('active')
+					$('.opt-link').removeClass('active')
 					$(this).addClass('active')
 					if ($(this).hasClass('n-avance')) {
 						clearFields()
-						$(document).find('.dimen-content').removeClass('active')
-						$(document).find('.avance.dimen-content').addClass('active')
+						$('.title').removeClass('active')
+						$('.dimen-content').removeClass('active')
+						$('.avance.dimen-content').addClass('active')
+						$('.title.t-vig').addClass('active')
 						mensaje()
 						comentarios(0,0,0,0)
 					}
 					if($(this).hasClass('n-comentario')){
-						$(document).find('.dimen-content').removeClass('active')
-						$(document).find('.comentario.dimen-content').addClass('active')
+						$('.dimen-content').removeClass('active')
+						$('.comentario.dimen-content').addClass('active')
 					}
 					if ($(this).hasClass('n-realizandose')) {
 						clearFields()
-						$(document).find('.dimen-content').removeClass('active')
-						$(document).find('.realizandose.dimen-content').addClass('active')
+						$('.dimen-content').removeClass('active')
+						$('.realizandose.dimen-content').addClass('active')
 						mensaje()
 						comentarioRealizandose()
 					}
@@ -330,8 +415,9 @@
 				}
 			})
 			$('#guardar').on('click',function(){
-				var titulo = $('.title-comment').val()
-				var descrip = $('.descrip-comment').val()
+				var titulo = $('#title-com').val()
+				var descrip = $('#descrip-com').val()
+				var app = $('#app-com').val()
 				if (titulo == '' || descrip == '') {
 					Swal.fire({
 						title: 'Aviso',
@@ -341,7 +427,13 @@
 				}else if (!$('.type-button').hasClass('active')){
 					Swal.fire({
 						title: 'Aviso',
-						text: 'Debe indicar el tipo de comentario',
+						text: 'Indique el tipo de comentario',
+						type: 'warning'
+					})
+				}else if (app == 0){
+					Swal.fire({
+						title: 'Aviso',
+						text: 'Indique la aplicacion asociada',
 						type: 'warning'
 					})
 				}else {
@@ -350,7 +442,7 @@
 					$('.img-upload').each(function(i){
 						img.push($(this).attr('src'))
 					})
-					$.post('guardarComentario.php',{titulo:titulo,comentario:descrip,tipo:tipo,imagenes:JSON.stringify(img)},function(e){
+					$.post('guardarComentario.php',{titulo:titulo,comentario:descrip,app:app,tipo:tipo,imagenes:JSON.stringify(img)},function(e){
 						if (e != '0') {
 							switch(e){
 								case '1':
@@ -376,34 +468,76 @@
 				}
 			})
 		})
-	function comentarioRealizandose(){
-		$.post('obtenerComentAdmin.php',function(e){
-			Swal.close()
-			if (e != '0') {
-				let item = ""
-				var admin = 0
-				if (e != "[[]]") {
-					const json = JSON.parse(e)
-					item += "<div class='order-title'>"
-					item += "<span class='title' style='width: 100%;'>REALIZANDOSE</span>"
+		function comentarioRealizandose(){
+			$.post('obtenerComentAdmin.php',function(e){
+				Swal.close()
+				if (e != '0') {
+					let item = ""
+					var admin = 0
+					item += "<div class='order-title' style='background: unset;'>"
+					item += "<span class='title-uni'>REALIZANDOSE</span>"
 					item += "</div>"
-					item += "<div class='content-div' style='margin-top: 10px;'>"
-					for (let i = 0; i < json.length; i++) {
-						if (admin == 0) {
-							admin = json[i].admin
-							item += "<div class='com-padre'>"
-								item += "<div class='h-com rounded-top' style='display: flex;justify-content: space-between;background: darkmagenta;padding: 0px 5px;'>"
-									item += "<span>"+json[i].nomadmin+"</span>"
-									item += "<span class='chv-dw' style='display:none;'><i class='fas fa-chevron-circle-down'></i></span>"
-								item += "</div>"
-								item += "<div class='com-hijo' style='color:black;background: white;'>"
+					if (e != "[[]]") {
+						const json = JSON.parse(e)
+						item += "<div class='content-div pad-cus' style='margin-top: 10px;display: block;flex-wrap: unset;'>"
+						for (let i = 0; i < json.length; i++) {
+							if (admin == 0) {
+								admin = json[i].admin
+								item += "<div class='com-padre'>"
+									item += "<div class='h-com rounded-top'>"
+										item += "<span>"+json[i].nomadmin+"</span>"
+										item += "<span class='chv-dw' style='display:none;'><i class='fas fa-chevron-circle-down'></i></span>"
+									item += "</div>"
+									item += "<div class='com-hijo'>"
+									/*comentario*/
+									if (json[i].tipo == 1) {
+										item += "<div class='comment border-suggest d-block-sm'>"
+									}else if(json[i].tipo == 2) {
+										item += "<div class='comment border-bug d-block-sm'>"
+									}else {
+										item += "<div class='comment border-app d-block-sm'>"
+									}
+										item += "<div class='alter-header-comment'>"
+										item += "<span><i class='fas fa-calendar'></i> "+json[i].fecha+"</span>"
+										item += "<span class='nom-tool' data-toggle='tooltip' title='COMENTARIO DE: "+json[i].nomusu+"'><i class='fas fa-user'></i> "+json[i].usuario+" <i class='fas fa-hashtag'></i> "+json[i].codcoment+"</span>"
+										item += "</div>"
+										item += "<div><span>"+json[i].titulo+"</span></div>"
+										if (json[i].comentario.length > 134) {
+											const first = json[i].comentario.substring(0,134)
+											const last = json[i].comentario.substring(134)
+											item += "<p class='parraf'>"+first+"<span class='dots active'>...</span><span class='rest'>"+last+"</span></p>"
+										}else {
+											item += "<p class='parraf'>"+json[i].comentario+"</p>"
+										}
+										item += "<div class='progress prog-cus'>"
+											if (json[i].avance == 100 || json[i].avance < 100) {
+												item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-success' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+											}else if (json[i].avance > 100 && json[i].avance < 125) {
+												item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-warning' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+											}else if (json[i].avance >= 125) {
+												item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-danger' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+											}
+										item += "</div>"
+										item += "<div class='in-fin'>"
+											item += "<span><i class='far fa-flag'></i> "+json[i].iniciado+"</span>"
+											item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].estimado+"</span>"
+										item += "</div>"
+										item += "<div><i class='fas fa-cubes'></i> "+json[i].app+"</div>"
+									item += "</div>"
+									/*comentario*/
+									if (i == (json.length-1)) {
+										item += "</div>"
+										item += "<div class='rounded-bottom div-bot'><span class='chv-up'><i class='fas fa-chevron-circle-up'></i></span></div>"
+										item += "</div>"
+									}
+							}else if (admin == json[i].admin) {
 								/*comentario*/
 								if (json[i].tipo == 1) {
-									item += "<div class='comment border-suggest'>"
+									item += "<div class='comment border-suggest d-block-sm'>"
 								}else if(json[i].tipo == 2) {
-									item += "<div class='comment border-bug'>"
+									item += "<div class='comment border-bug d-block-sm'>"
 								}else {
-									item += "<div class='comment border-app'>"
+									item += "<div class='comment border-app d-block-sm'>"
 								}
 									item += "<div class='alter-header-comment'>"
 									item += "<span><i class='fas fa-calendar'></i> "+json[i].fecha+"</span>"
@@ -428,8 +562,9 @@
 									item += "</div>"
 									item += "<div class='in-fin'>"
 										item += "<span><i class='far fa-flag'></i> "+json[i].iniciado+"</span>"
-										item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].fecesti+"</span>"
+										item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].estimado+"</span>"
 									item += "</div>"
+									item += "<div><i class='fas fa-cubes'></i> "+json[i].app+"</div>"
 								item += "</div>"
 								/*comentario*/
 								if (i == (json.length-1)) {
@@ -437,102 +572,67 @@
 									item += "<div class='rounded-bottom div-bot'><span class='chv-up'><i class='fas fa-chevron-circle-up'></i></span></div>"
 									item += "</div>"
 								}
-						}else if (admin == json[i].admin) {
-							/*comentario*/
-							if (json[i].tipo == 1) {
-								item += "<div class='comment border-suggest'>"
-							}else if(json[i].tipo == 2) {
-								item += "<div class='comment border-bug'>"
 							}else {
-								item += "<div class='comment border-app'>"
-							}
-								item += "<div class='alter-header-comment'>"
-								item += "<span><i class='fas fa-calendar'></i> "+json[i].fecha+"</span>"
-								item += "<span class='nom-tool' data-toggle='tooltip' title='COMENTARIO DE: "+json[i].nomusu+"'><i class='fas fa-user'></i> "+json[i].usuario+" <i class='fas fa-hashtag'></i> "+json[i].codcoment+"</span>"
-								item += "</div>"
-								item += "<div><span>"+json[i].titulo+"</span></div>"
-								if (json[i].comentario.length > 134) {
-									const first = json[i].comentario.substring(0,134)
-									const last = json[i].comentario.substring(134)
-									item += "<p class='parraf'>"+first+"<span class='dots active'>...</span><span class='rest'>"+last+"</span></p>"
-								}else {
-									item += "<p class='parraf'>"+json[i].comentario+"</p>"
-								}
-								item += "<div class='progress prog-cus'>"
-									if (json[i].avance == 100 || json[i].avance < 100) {
-										item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-success' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
-									}else if (json[i].avance > 100 && json[i].avance < 125) {
-										item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-warning' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
-									}else if (json[i].avance >= 125) {
-										item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-danger' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
-									}
-								item += "</div>"
-								item += "<div class='in-fin'>"
-									item += "<span><i class='far fa-flag'></i> "+json[i].iniciado+"</span>"
-									item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].fecesti+"</span>"
-								item += "</div>"
-							item += "</div>"
-							/*comentario*/
-							if (i == (json.length-1)) {
 								item += "</div>"
 								item += "<div class='rounded-bottom div-bot'><span class='chv-up'><i class='fas fa-chevron-circle-up'></i></span></div>"
 								item += "</div>"
-							}
-						}else {
-							item += "</div>"
-							item += "<div class='div-bot'><span class='chv-up'><i class='fas fa-chevron-circle-up'></i></span></div>"
-							item += "</div>"
-							admin = json[i].admin
-							item += "<div class='com-padre'>"
-								item += "<div class='h-com rounded-top' style='display: flex;justify-content: space-between;background: darkmagenta;padding: 0px 5px;'>"
-									item += "<span>"+json[i].nomadmin+"</span>"
-									item += "<span class='chv-dw' style='display:none;'><i class='fas fa-chevron-circle-down'></i></span>"
-								item += "</div>"
-								item += "<div class='com-hijo' style='display:none;color:black;background: white;'>"
-								/*comentario*/
-								if (json[i].tipo == 1) {
-									item += "<div class='comment border-suggest'>"
-								}else if(json[i].tipo == 2) {
-									item += "<div class='comment border-bug'>"
-								}else {
-									item += "<div class='comment border-app'>"
-								}
-									item += "<div class='alter-header-comment'>"
-									item += "<span><i class='fas fa-calendar'></i> "+json[i].fecha+"</span>"
-									item += "<span class='nom-tool' data-toggle='tooltip' title='COMENTARIO DE: "+json[i].nomusu+"'><i class='fas fa-user'></i> "+json[i].usuario+" <i class='fas fa-hashtag'></i> "+json[i].codcoment+"</span>"
+								admin = json[i].admin
+								item += "<div class='com-padre'>"
+									item += "<div class='h-com rounded-top'>"
+										item += "<span>"+json[i].nomadmin+"</span>"
+										item += "<span class='chv-dw' style='display:none;'><i class='fas fa-chevron-circle-down'></i></span>"
 									item += "</div>"
-									item += "<div><span>"+json[i].titulo+"</span></div>"
-									if (json[i].comentario.length > 134) {
-										const first = json[i].comentario.substring(0,134)
-										const last = json[i].comentario.substring(134)
-										item += "<p class='parraf'>"+first+"<span class='dots active'>...</span><span class='rest'>"+last+"</span></p>"
+									item += "<div class='com-hijo'>"
+									/*comentario*/
+									if (json[i].tipo == 1) {
+										item += "<div class='comment border-suggest d-block-sm'>"
+									}else if(json[i].tipo == 2) {
+										item += "<div class='comment border-bug d-block-sm'>"
 									}else {
-										item += "<p class='parraf'>"+json[i].comentario+"</p>"
+										item += "<div class='comment border-app d-block-sm'>"
 									}
-									item += "<div class='progress prog-cus'>"
-										if (json[i].avance == 100 || json[i].avance < 100) {
-											item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-success' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
-										}else if (json[i].avance > 100 && json[i].avance < 125) {
-											item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-warning' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
-										}else if (json[i].avance >= 125) {
-											item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-danger' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+										item += "<div class='alter-header-comment'>"
+										item += "<span><i class='fas fa-calendar'></i> "+json[i].fecha+"</span>"
+										item += "<span class='nom-tool' data-toggle='tooltip' title='COMENTARIO DE: "+json[i].nomusu+"'><i class='fas fa-user'></i> "+json[i].usuario+" <i class='fas fa-hashtag'></i> "+json[i].codcoment+"</span>"
+										item += "</div>"
+										item += "<div><span>"+json[i].titulo+"</span></div>"
+										if (json[i].comentario.length > 134) {
+											const first = json[i].comentario.substring(0,134)
+											const last = json[i].comentario.substring(134)
+											item += "<p class='parraf'>"+first+"<span class='dots active'>...</span><span class='rest'>"+last+"</span></p>"
+										}else {
+											item += "<p class='parraf'>"+json[i].comentario+"</p>"
 										}
+										item += "<div class='progress prog-cus'>"
+											if (json[i].avance == 100 || json[i].avance < 100) {
+												item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-success' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+											}else if (json[i].avance > 100 && json[i].avance < 125) {
+												item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-warning' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+											}else if (json[i].avance >= 125) {
+												item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-danger' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+											}
+										item += "</div>"
+										item += "<div class='in-fin'>"
+											item += "<span><i class='far fa-flag'></i> "+json[i].iniciado+"</span>"
+											item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].estimado+"</span>"
+										item += "</div>"
+										item += "<div><i class='fas fa-cubes'></i> "+json[i].app+"</div>"
 									item += "</div>"
-									item += "<div class='in-fin'>"
-										item += "<span><i class='far fa-flag'></i> "+json[i].iniciado+"</span>"
-										item += "<span><i class='fas fa-flag-checkered'></i> "+json[i].fecesti+"</span>"
+									/*comentario*/
+								if (i == (json.length-1)) {
 									item += "</div>"
-								item += "</div>"
-								/*comentario*/
-							if (i == (json.length-1)) {
-								item += "</div>"
-								item += "<div class='rounded-bottom div-bot'><span class='chv-up'><i class='fas fa-chevron-circle-up'></i></span></div>"
-								item += "</div>"
+									item += "<div class='rounded-bottom div-bot'><span class='chv-up'><i class='fas fa-chevron-circle-up'></i></span></div>"
+									item += "</div>"
+								}
 							}
 						}
+						item += "</div>"
+					}else {
+						item += "<div class='empty-div'>"
+						item += "<i class='far fa-comments fa-3x'></i>"
+						item += "<span>Los administradores se encuentran libres</span>"
+						item += "</div>"
 					}
-					item += "</div>"
-
 					$('#adm-exe').html(item)
 					$('.parraf').on('click',function(){
 						if ($(this).children('.dots').hasClass('active')) {
@@ -565,215 +665,228 @@
 					})
 					$('.nom-tool').tooltip()
 				}else {
-					item += "<div class='empty-div'>"
-					item += "<i class='far fa-comments fa-3x'></i>"
-					item += "<span>Los administradores se encuentran libres</span>"
-					item += "</div>"
+					window.location.href = 'index.php'
 				}
-			}else {
-				window.location.href = 'index.php'
-			}
-		})
-	}
-	function comentarios(comentario,opcion,month,year){
-		$.post('obtenerComentarios.php',{comentario:comentario,opcion:opcion,mes:month,anho:year},function(e){
-			Swal.close()
-			if (e != '0') {
-				let item = ""
-				if (month == 0 && year == 0) {
-					item += "<div class='order-title'>"
-					item += "<span class='title title-l'>VIGENTES</span>"
-					item += "<span id='finalizado' class='title title-r'>OTROS</span>"
-					item += "</div>"
-				}
-				if (e != "[[]]") {
-					const json = JSON.parse(e)
-					item += "<div class='content-div'>"
-					for (let i = 0; i < json.length; i++) {
-						if (json[i].anulado == 1) {
-							item += "<div class='comment border-anulado'>"
-						}else {
-							if (json[i].tipo == 1) {
-								item += "<div class='comment border-suggest'>"
-							}else if(json[i].tipo == 2) {
-								item += "<div class='comment border-bug'>"
+			})
+		}
+		function comentarios(comentario,opcion,month,year){
+			$.post('obtenerComentarios.php',{comentario:comentario,opcion:opcion,mes:month,anho:year},function(e){
+				Swal.close()
+				if (e != '0') {
+					let item = ""
+					if (e != "[[]]") {
+						const json = JSON.parse(e)
+						item += "<div class='content-div'>"
+						for (let i = 0; i < json.length; i++) {
+							if (json[i].anulado == 1) {
+								item += "<div class='comment border-anulado d-block-sm'>"
 							}else {
-								item += "<div class='comment border-app'>"
-							}
-						}
-						item += "<div class='header-comment'>"
-						item += "<span>"+json[i].fecha+"</span>"
-						item += "<span>"+json[i].titulo+"</span>"
-						item += "<div class='detalle' value='"+json[i].codcoment+"@"+json[i].fecha+"'><i class='fas fa-ellipsis-v fa-lg'></i></div>"
-						item += "</div>"
-						if (json[i].descrip.length > 134) {
-							const first = json[i].descrip.substring(0,134)
-							const last = json[i].descrip.substring(134)
-							item += "<p class='parraf'>"+first+"<span class='dots active'>...</span><span class='rest'>"+last+"</span></p>"
-						}else {
-							item += "<p class='parraf'>"+json[i].descrip+"</p>"
-						}
-						if (json[i].estado != 'PENDIENTE') {
-							item += "<div class='progress prog-cus'>"
-							if (json[i].finalizado != 0) {
-								if (json[i].avance == 100 || json[i].avance < 100) {
-									item += "<div class='progress-bar bg-success' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
-								}else if (json[i].avance > 100 && json[i].avance < 125) {
-									item += "<div class='progress-bar bg-warning' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
-								}else if (json[i].avance >= 125) {
-									item += "<div class='progress-bar bg-danger' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
-								}
-							}else if (json[i].finalizado == 0) {
-								if (json[i].avance == 100 || json[i].avance < 100) {
-									item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-success' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
-								}else if (json[i].avance > 100 && json[i].avance < 125) {
-									item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-warning' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
-								}else if (json[i].avance >= 125) {
-									item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-danger' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+								if (json[i].tipo == 1) {
+									item += "<div class='comment border-suggest d-block-sm'>"
+								}else if(json[i].tipo == 2) {
+									item += "<div class='comment border-bug d-block-sm'>"
+								}else {
+									item += "<div class='comment border-app d-block-sm'>"
 								}
 							}
+							item += "<div class='header-comment'>"
+							item += "<span>"+json[i].fecha+"</span>"
+							item += "<span>"+json[i].titulo+"</span>"
+							item += "<div class='detalle' value='"+json[i].codcoment+"@"+json[i].fecha+"'><i class='fas fa-ellipsis-v fa-lg'></i></div>"
+							item += "</div>"
+							if (json[i].descrip.length > 134) {
+								const first = json[i].descrip.substring(0,134)
+								const last = json[i].descrip.substring(134)
+								item += "<p class='parraf'>"+first+"<span class='dots active'>...</span><span class='rest'>"+last+"</span></p>"
+							}else {
+								item += "<p class='parraf'>"+json[i].descrip+"</p>"
+							}
+							if (json[i].estado != 'PENDIENTE') {
+								item += "<div class='progress prog-cus'>"
+								if (json[i].finalizado != 0) {
+									if (json[i].avance == 100 || json[i].avance < 100) {
+										item += "<div class='progress-bar bg-success' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+									}else if (json[i].avance > 100 && json[i].avance < 125) {
+										item += "<div class='progress-bar bg-warning' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+									}else if (json[i].avance >= 125) {
+										item += "<div class='progress-bar bg-danger' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+									}
+								}else if (json[i].finalizado == 0) {
+									if (json[i].avance == 100 || json[i].avance < 100) {
+										item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-success' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+									}else if (json[i].avance > 100 && json[i].avance < 125) {
+										item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-warning' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+									}else if (json[i].avance >= 125) {
+										item += "<div class='progress-bar progress-bar-striped progress-bar-animated bg-danger' style='width: "+json[i].avance+"%'>"+json[i].avance+"%</div>"
+									}
+								}
+								item += "</div>"
+							}
+							item += "<div class='footer-comment'>"
+							item += "<span>"+json[i].estado+"</span>"
+							item += "<span>N° "+json[i].codcoment+"</span>"
+							item += "<span class='duration'>"+json[i].transcurrido+" días pasaron</span>"
+							item += "</div>"
 							item += "</div>"
 						}
-						item += "<div class='footer-comment'>"
-						item += "<span>"+json[i].estado+"</span>"
-						item += "<span>N° "+json[i].codcoment+"</span>"
-						item += "<span class='duration'>"+json[i].transcurrido+" días pasaron</span>"
 						item += "</div>"
-						item += "</div>"
-					}
-					item += "</div>"
-				}else {
-					item += "<div class='empty-div'>"
-					item += "<i class='far fa-comments fa-3x'></i>"
-					item += "<span>No tiene comentarios</span>"
-					item += "</div>"
-				}
-				(month != 0 && year != 0) ? $('#coment-body').html(item) : $('#vigente').html(item)
-				$('.parraf').on('click',function(){
-					if ($(this).children('.dots').hasClass('active')) {
-						$(this).children('.dots').removeClass('active')
-						$(this).children('.rest').addClass('active')
 					}else {
-						$(this).children('.rest').removeClass('active')
-						$(this).children('.dots').addClass('active')
+						item += "<div class='empty-div'>"
+						item += "<i class='far fa-comments fa-3x'></i>"
+						item += "<span>No se encontraron comentarios</span>"
+						item += "</div>"
 					}
-				})
-				$('#finalizado').on('click',function(){
-					$('#parametros').modal('show')
-				})
-				$('.detalle').on('click',function(){
-					detalle($(this).attr('value'))
-				})
-				if (month != 0 && year != 0) {
-					$('#anho')[0].selectedIndex = 0
-					$('#mes')[0].selectedIndex = 0
-					$('#comentarios').modal('show')
-				}	
-			}else {
-				window.location.href = 'index.php'
-			}
-		})
-	}
-	function detalle(data){
-		$.post('obtenerDetalle.php',{opcion:0,parametros:data},function(e){
-			if (e != '0') {
-				let item = ""
-				const json = JSON.parse(e)
-				item += "<div style='display: flex;flex-direction: column;margin: 0px 15px;font-weight: 100'>"
-					item += "<div style='display: flex;justify-content: space-between;margin-bottom:5px;'>"
-						item += "<span><i class='fas fa-hashtag'></i> "+json['codcoment']+"</span>"
-						item += "<span><i class='fas fa-calendar-day'></i> "+json['fecha']+"</span>"
-						item += "<span><i class='fas fa-clock'></i> "+json['hora']+"</span>"
-					item += "</div>"
-					item += "<div style='display: flex;justify-content: space-between;margin-bottom:5px;'>"
-						item += "<span><i class='fas fa-comment-dots'></i> "+json['tipo']+"</span>"
-						item += "<span style='background: crimson;color: white;padding: 0px 10px;'>"+json['estado']+"</span>"
-					item += "</div>"
-					if (json['admin'] != 0) {
-						item += "<span style='text-align: center;padding: 3px;background: green;margin-top: 3px;color: white;'><i class='fas fa-user-circle'></i> ADMINISTRADOR</span>"
-						item += "<span style='text-align: center;margin-bottom:5px;border-left: 1px solid green;border-right: 1px solid green;border-bottom: 1px solid green;'>"+json['nomadmin']+"</span>"
-						if (json['fecanul'] == 0) {
-							item += "<div style='display: flex;justify-content: space-between;margin-bottom:5px;'>"
-								item += "<span>COMENTARIO REVISADO:</span>"
-								item += "<span>"+json['revisado']+"</span>"
-							item += "</div>"
+					$('#vigente').html(item)
+					$('.parraf').on('click',function(){
+						if ($(this).children('.dots').hasClass('active')) {
+							$(this).children('.dots').removeClass('active')
+							$(this).children('.rest').addClass('active')
 						}else {
-							item += "<div style='display: flex;justify-content: space-between;margin-bottom:5px;'>"
-								item += "<span>COMENTARIO ANULADO:</span>"
-								item += "<span>"+json['fecanul']+"</span>"
-							item += "</div>"
+							$(this).children('.rest').removeClass('active')
+							$(this).children('.dots').addClass('active')
 						}
-						if (json['desc_adm'] != null && json['desc_adm'] != '') {
-							item += "<span>MENSAJE ADMIN:</span>"
-							item += "<span style='border: 1px solid lightblue;padding: 5px;border-radius: 5px;'>"+json['desc_adm']+"</span>"
+					})
+					$('.title').on('click',function(){
+						if ($(this).hasClass('t-vig')) {
+							$('.title').removeClass('active')
+							$(this).addClass('active')
+							mensaje()
+							comentarios(0,0,0,0)
 						}
-						if (json['estimado'] != 0) {
-							item += "<span style='margin-bottom:5px;'>TOMARA "+json['estimado']+" DIAS, APROXIMADO:</span>"
-							item += "<div style='display: flex;justify-content: space-between;align-items: center;'>"
-								item += "<span><i class='far fa-flag'></i> "+json['iniciado']+"</span>"
-								item += "<i class='fas fa-angle-double-right'></i>"
-								item += "<span><i class='fas fa-flag-checkered'></i> "+json['fecesti']+"</span>"
-							item += "</div>"
+						if ($(this).hasClass('t-otr')) {
+							$('#parametros').modal('show')
 						}
-						if (json['finalizado'] != 0) {
-							item += "<span style='width:100%;text-align: center;color: crimson;'>CONCLUIDO EL "+json['finalizado']+"</span>"
+					})
+					$('.detalle').on('click',function(){
+						detalle($(this).attr('value'))
+					})
+					if (month != 0 && year != 0) {
+						$('.title').removeClass('active')
+						$('.title.t-otr').addClass('active')
+						$('#anho')[0].selectedIndex = 0
+						$('#mes')[0].selectedIndex = 0
+						$('.modal').modal('hide')
+					}	
+				}else {
+					window.location.href = 'index.php'
+				}
+			})
+		}
+		function detalle(data){
+			$.post('obtenerDetalle.php',{opcion:0,parametros:data},function(e){
+				if (e != '0') {
+					let item = ""
+					const json = JSON.parse(e)
+					item += "<div style='display: flex;flex-direction: column;margin: 0px 15px;font-weight: 100'>"
+						item += "<span style='margin-bottom:5px;'><i class='fas fa-cubes'></i> "+json['app']+"</span>"
+						item += "<div style='display: flex;justify-content: space-between;margin-bottom:5px;'>"
+							item += "<span><i class='fas fa-hashtag'></i> "+json['codcoment']+"</span>"
+							item += "<span><i class='fas fa-calendar-day'></i> "+json['fecha']+"</span>"
+							item += "<span><i class='fas fa-clock'></i> "+json['hora']+"</span>"
+						item += "</div>"
+						item += "<div style='display: flex;justify-content: space-between;margin-bottom:5px;'>"
+							item += "<span><i class='fas fa-comment-dots'></i> "+json['tipo']+"</span>"
+							item += "<span style='background: crimson;color: white;padding: 0px 10px;'>"+json['estado']+"</span>"
+						item += "</div>"
+						if (json['admin'] != 0) {
+							item += "<span style='text-align: center;padding: 3px;background: green;margin-top: 3px;color: white;'><i class='fas fa-user-circle'></i> ADMINISTRADOR</span>"
+							item += "<span style='text-align: center;margin-bottom:5px;border-left: 1px solid green;border-right: 1px solid green;border-bottom: 1px solid green;'>"+json['nomadmin']+"</span>"
+							if (json['fecanul'] == 0) {
+								item += "<div style='display: flex;justify-content: space-between;margin-bottom:5px;'>"
+									item += "<span>COMENTARIO REVISADO:</span>"
+									item += "<span>"+json['revisado']+"</span>"
+								item += "</div>"
+							}else {
+								item += "<div style='display: flex;justify-content: space-between;margin-bottom:5px;'>"
+									item += "<span>COMENTARIO ANULADO:</span>"
+									item += "<span>"+json['fecanul']+"</span>"
+								item += "</div>"
+							}
+							if (json['desc_adm'] != null && json['desc_adm'] != '') {
+								item += "<span>MENSAJE ADMIN:</span>"
+								item += "<span style='border: 1px solid lightblue;padding: 5px;border-radius: 5px;'>"+json['desc_adm']+"</span>"
+							}
+							if (json['estimado'] != 0) {
+								item += "<span style='margin-bottom:5px;'>TOMARA "+json['estimado']+" DIAS, APROXIMADO:</span>"
+								item += "<div style='display: flex;justify-content: space-between;align-items: center;'>"
+									item += "<span><i class='far fa-flag'></i> "+json['iniciado']+"</span>"
+									item += "<i class='fas fa-angle-double-right'></i>"
+									item += "<span><i class='fas fa-flag-checkered'></i> "+json['estimado']+"</span>"
+								item += "</div>"
+							}
+							if (json['finalizado'] != 0) {
+								item += "<span style='width:100%;text-align: center;color: crimson;'>CONCLUIDO EL "+json['finalizado']+"</span>"
+							}
 						}
-					}
-				item += "</div>"
-				$('#detalle-title').html(json['titulo'])
-				$('#detalle-body').html(item)
-				$('#detalles').modal('show')
-			}else {
-				window.location.href = 'index.php'
-			}
-		})
-	}
-	function imagenPreview(e) {
-	    var $input = $(this)
-	    var inputFiles = this.files
-	    if(inputFiles == undefined || inputFiles.length == 0) return
-	    var inputFile = inputFiles[0]
+					item += "</div>"
+					$('#detalle-title').html(json['titulo'])
+					$('#detalle-body').html(item)
+					$('#detalles').modal('show')
+				}else {
+					window.location.href = 'index.php'
+				}
+			})
+		}
+		function imagenPreview(e) {
+		    var $input = $(this)
+		    var inputFiles = this.files
+		    if(inputFiles == undefined || inputFiles.length == 0) return
+		    var inputFile = inputFiles[0]
 
-	    var reader = new FileReader()
-	    reader.onload = function(event) {
-	    	let item = ""
-	    	item += "<div class='content-upload'>"
-	    	item += "<img class='img-upload' src='"+event.target.result+"'></img>"
-	    	item += "<div class='btn-remove'><i class='fas fa-times'></i></div>"
-	    	item += "</div>"
-	    	$('.btimg-edit').before(item)
-	    	$('.btn-remove').on('click',function(){
-	    		$(this).closest('.content-upload').remove()
-	    	})
-	    }
-	    reader.onerror = function(event) {
-	        alert("Error: " + event.target.error.code)
-	    }
-	    reader.readAsDataURL(inputFile)
-	}
-	function clearFields(){
-		$('.title-comment').val('')
-		$('.descrip-comment').val('')
-		$('.type-button').removeClass('active')
-		$(document).find('.content-upload').remove()
-	}
-	function mensaje(){
-		Swal.fire({
-			title: 'Obteniendo comentarios...',
-			allowEscapeKey: false,
-			allowOutsideClick: false
-		})
-		Swal.showLoading()
-	}
+		    var reader = new FileReader()
+		    reader.onload = function(event) {
+		    	let item = ""
+		    	item += "<div class='content-upload'>"
+		    	item += "<img class='img-upload' src='"+event.target.result+"'></img>"
+		    	item += "<div class='btn-remove'><i class='fas fa-times'></i></div>"
+		    	item += "</div>"
+		    	$('.btimg-edit').before(item)
+		    	$('.btn-remove').on('click',function(){
+		    		$(this).closest('.content-upload').remove()
+		    	})
+		    }
+		    reader.onerror = function(event) {
+		        alert("Error: " + event.target.error.code)
+		    }
+		    reader.readAsDataURL(inputFile)
+		}
+		function clearFields(){
+			//$('.title-comment').val('')
+			//$('.descrip-comment').val('')
+			$('.form-field').val('')
+			$('#app-com')[0].selectedIndex = 0
+			$('.type-button').removeClass('active')
+			$(document).find('.content-upload').remove()
+		}
+		function mensaje(){
+			Swal.fire({
+				title: 'Obteniendo comentarios...',
+				allowEscapeKey: false,
+				allowOutsideClick: false
+			})
+			Swal.showLoading()
+		}
 	</script>
 	<style>
+		body, button {
+			font-family: 'Nunito', sans-serif !important;
+			font-weight: 600 !important;
+		}
 		.no-padding {
 			padding-right: 0px !important;
 			padding-left: 0px !important; 
 		}
-		body, button {
-			font-family: 'Nunito', sans-serif !important;
-			font-weight: 600 !important;
+		.d-md-lg {
+			display: none;
+		}
+		.dimen-nav {
+			background: white;
+		}
+		.dimen-content {
+			transition: all .6s ease;
+		}
+		.fa-rocket,.let-small.active,.opt-link.active {
+			color: red;
 		}
 		.dots.active,.rest.active {
 			display: inline;
@@ -790,7 +903,7 @@
 			align-items: center;
 		}
 		.padd {
-			padding: 1rem 1rem 1rem 1rem;
+			padding: 1rem;
 		}
 		.m8-l {
 			margin-left: .8rem;
@@ -824,80 +937,12 @@
 		.border-anulado {
 			border: 3px solid #5803e0;
 		}
-		/*PRINCIPAL: #29a17b
-		SECUNDARIO: #57c2a0*/
-		.imagePreview {
-		    width: 100%;
-		    height: 180px;
-		    background-position: center center;
-		  background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
-		  background-color:#fff;
-		    background-size: cover;
-		  background-repeat:no-repeat;
-		    display: inline-block;
-		  box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
-		}
-		.btn-primary
-		{
-		  display:block;
-		  border-radius:0px;
-		  box-shadow:0px 4px 6px 2px rgba(0,0,0,0.2);
-		  margin-top:-5px;
-		}
-		.imgUp
-		{
-		  margin-bottom:15px;
-		}
-		.del
-		{
-		  position:absolute;
-		  top:0px;
-		  right:15px;
-		  width:30px;
-		  height:30px;
-		  text-align:center;
-		  line-height:30px;
-		  background-color:rgba(255,255,255,0.6);
-		  cursor:pointer;
-		}
-		.imgAdd
-		{
-		  width:30px;
-		  height:30px;
-		  border-radius:50%;
-		  background-color:#4bd7ef;
-		  color:#fff;
-		  box-shadow:0px 0px 2px 1px rgba(0,0,0,0.2);
-		  text-align:center;
-		  line-height:30px;
-		  margin-top:0px;
-		  cursor:pointer;
-		  font-size:15px;
-		}
-		.chip {
-		  display: inline-block;
-		  padding: 0 25px;
-		  height: 50px;
-		  font-size: 16px;
-		  line-height: 50px;
-		  border-radius: 25px;
-		  background-color: #f1f1f1;
-		}
-		.chip i {
-		  float: left;
-		  margin: 0 10px 0 -25px;
-		  height: 50px;
-		  width: 50px;
-		  border-radius: 50%;
-		}
-
 		.border-cus {
 			border: unset;
 			border-radius: unset;
 			border-top-left-radius: 1rem;
     		border-top-right-radius: 1rem;
 		}
-
 		.bord-h-cus {
 			background: #5803e0;
     		color: white;
@@ -907,7 +952,232 @@
 			border-top-left-radius: .5rem;
     		border-top-right-radius: .5rem;
 		}
-
+		.gotop {
+			position: fixed;
+			bottom: 30px;
+			right: 20px;
+			width: 30px;
+			height: 30px;
+			background: #e74c3c;
+			color: white;
+			border: none;
+			cursor: pointer;
+			border-radius: 30px;
+		}
+		.order-title {
+			background: #57baf1;
+		}
+		.title.active {
+	    	color: black;
+	    	background: white;
+			border: 0px;
+		}
+		.comment {
+			display: flex;
+		    background: white;
+		    font-size: .8rem;
+		    border-radius: 5px;
+		    box-shadow: 2px 2px 5px #b5b5b5;
+		    margin-top: 20px;
+		}
+		.comment-dots.active {
+			color: #ffffff;
+		    background: #007bff;
+		    border: unset;
+		}
+		.laptop.active {
+			color: #ffffff;
+		    background: #ff9f00;
+		    border: unset;
+		}
+		.bug.active {
+			color: #ffffff;
+		    background: #dc3545;
+		    border: unset;
+		}
+		.header-comment {
+			display: flex;
+		    justify-content: space-between;
+		    margin: 5px 10px;
+		    align-items: center;
+		}
+		.alter-header-comment {
+			display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		    color: white;
+		    background: #2e8b8b;
+		    padding: 5px 10px;
+		    font-weight: 100 !important;
+		}
+		.parraf {
+			text-align: justify;
+			font-weight: 100;
+			margin: 5px 10px;
+			flex-grow: 1;
+		}
+		.prog-cus {
+			font-weight: 100;
+			margin: 0px 5px;
+		}
+		.footer-comment {
+			display: flex;
+		    justify-content: space-between;
+		    margin: 5px 10px;
+		    align-items: center;
+		}
+		.btn:hover {
+			color: white;
+			outline:0px !important;
+		    -webkit-appearance:none;
+		    box-shadow: none !important;
+		}
+		.btn-cus {
+			width: 100%;
+		    margin: 20px 30px;
+		    font-size: 1.6rem;
+			background-color: #ff7458;
+			color: white;
+			border-width: 1px;
+			border-radius: .5rem;
+			border-color: rgba(0,0,0,0.2);
+		}
+		.btn-depth {
+		    box-shadow: inset 0 1px 0 rgba(255,255,255,0.0125), 0 1px 1px rgba(0,0,0,0.05);
+		    border-top-width: .0625rem;
+		    border-bottom-width: calc(.2rem + .0625rem);
+		    transition: all .5s ease;
+		}
+		.btn-depth:active {
+			box-shadow: 0 1px 1px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.0125);
+		    border-bottom-width: .0625rem;
+		    border-top-width: calc(.2rem + .0625rem);
+		}
+		.modal-btn-cus {
+			margin: 5px 10px;
+    		font-size: .8rem;
+		}
+		.m5-tb {
+			margin-top: .5rem;
+			margin-bottom: .5rem;
+		}
+		.grid-images {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.content-upload {
+			display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+		    align-items: center;
+		    width: 120px;
+			height: 200px;
+			margin: 10px 9px;
+		    border: 1px solid black;
+		}
+		.img-upload {
+			width: 120px;
+			height: 170px;
+			padding: 5px;
+		}
+		.btn-remove {
+			width: 120px;
+		    text-align: center;
+		    background-color: #dc3545;
+		    color: #ffffff;
+		    font-size: 1.25rem;
+		    border-top: 1px solid black;
+		}
+		.btimg-edit {
+			display: flex;
+		    align-items: center;
+		    width: 120px;
+		}
+		.buton-img {
+			margin-bottom: unset;
+		    display: flex;
+		    width: 100px;
+		    margin: 10px 9px;
+		    flex-direction: column;
+		    text-align: center;
+		    align-items: center;
+		    border: 1px solid black;
+			border-radius: 5px;
+		}
+		.upload-image {
+			width: 0px;
+			height: 0px;
+			overflow: hidden;
+		}
+		.title-uni {
+			width: 100%;
+			color: lightgray;
+    		border-bottom: 2px inset lightgray;
+		}
+		.h-com {
+			display: flex;
+			justify-content: space-between;
+			background: #1578a7;
+			padding: 0px 5px;
+		}
+		.com-padre {
+			color: white;
+		    margin-bottom: 10px;
+		}
+		.div-bot {
+			text-align: right;
+			background: #1578a7;
+			margin-top: 10px;
+			padding: 0px 5px;
+		}
+		.com-hijo {
+			color:black;
+			background: white;
+		}
+		.in-fin {
+			display: flex;
+		    margin: 2px 5px;
+		    justify-content: space-between;
+		}
+		.detail-content {
+			display: flex;
+			justify-content: space-between;
+			margin: 5px;
+		}
+		.cus-content {
+			border: 1px solid lightgray;
+		    padding: 5px;
+		    border-radius: 5px;
+		}
+		.btn-apilado {
+			flex-grow:1;
+			border-radius:unset;
+		}
+		.img-prev {
+			width: 100px;
+			height: 100px;
+			padding: 5px;
+			margin: 0px 5px;
+			border: 1px solid lightgray;
+		}
+		.empty-div {
+			display: flex;
+			height: 200px;
+			margin: 10px 20px 0px 20px;
+		    flex-direction: column;
+		    text-align: center;
+		    justify-content: center;
+		    align-items: center;
+		}
+		.modal-body {
+			font-weight: 100 !important;
+		}
+		.avance.active,.comentario.active,.realizandose.active {
+			display: block;
+		}
+		.avance,.comentario,.realizandose {
+			display: none;
+		}
 		/* Small devices (phones, 768px and down) */
 		@media only screen and (max-width: 768px) {
 			body {
@@ -917,27 +1187,18 @@
 				justify-content: space-between !important;
 				align-items: center;
 			}
-			.div-bot {
-				text-align: right;
-				background: darkmagenta;
-				margin-top: 10px;
-				padding: 0px 5px;
-			}
-			.com-padre {
-				color: white;
-			    margin-bottom: 10px;
-			}
 			.navbar-brand {
 			    font-size: .9rem;
+			}
+			.order-title {
+				display: flex;
+				padding: 10px 30px 0px 30px;
 			}
 			.no-border {
 				border-color: rgba(0,0,0,0) !important;
 			}
 			.d-sm {
 				display: none;
-			}
-			.fa-rocket,.let-small.active {
-				color: red;
 			}
 			.fa-bars {
 				color: black;
@@ -947,57 +1208,13 @@
 				display: grid; 
     			justify-items: center;
 			}
-			.btn:hover {
-				color: white;
-				outline:0px !important;
-			    -webkit-appearance:none;
-			    box-shadow: none !important;
-			}
-			.btn-cus {
-				width: 100%;
-			    margin: 20px 30px;
-			    font-size: 1.6rem;
-				background-color: #ff7458;
-				color: white;
-				border-width: 1px;
-				border-radius: .5rem;
-				border-color: rgba(0,0,0,0.2);
-			}
-			.btn-depth {
-			    box-shadow: inset 0 1px 0 rgba(255,255,255,0.0125), 0 1px 1px rgba(0,0,0,0.05);
-			    border-top-width: .0625rem;
-			    border-bottom-width: calc(.2rem + .0625rem);
-			    transition: all .5s ease;
-			}
-			.btn-depth:active {
-				box-shadow: 0 1px 1px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.0125);
-			    border-bottom-width: .0625rem;
-			    border-top-width: calc(.2rem + .0625rem);
-			}
 			.dimen-nav {
 				padding: 0rem 1rem;
-				background: white;
-			}
-			.comment {
-			    background: white;
-			    font-size: .8rem;
-			    border-radius: 5px;
-			    box-shadow: 2px 2px 5px #b5b5b5;
-			    margin-top: 20px;
-			}
-			.parraf {
-				text-align: justify;
-    			font-weight: 100;
-    			margin: 5px 10px;
 			}
 			.duration {
 				font-size: .7rem;
 			    font-weight: 100;
 			    color: gray;
-			}
-			.m5-tb {
-				margin-top: .5rem;
-				margin-bottom: .5rem;
 			}
 			.m20-tb {
 				margin-top: 2rem;
@@ -1005,124 +1222,21 @@
 			}
 			.dimen-content {
 				padding: 1rem 1rem;
-				transition: all .6s ease;
 			}
 			.dir-marg {
 				flex-direction: row;
 				margin-top: 10px;
 				justify-content: center;
 			}
-			.laptop.active {
-				color: #ffffff;
-			    background: #ff9f00;
-			    border: unset;
-			}
-			.bug.active {
-				color: #ffffff;
-			    background: #dc3545;
-			    border: unset;
-			}
-			.comment-dots.active {
-				color: #ffffff;
-			    background: #007bff;
-			    border: unset;
-			}
-			.content-upload {
-				display: flex;
-			    flex-direction: column;
-			    justify-content: center;
-			    align-items: center;
-			    width: 120px;
-				height: 200px;
-    			margin: 10px 9px;
-			    border: 1px solid black;
-			}
-			.img-upload {
-				width: 120px;
-				height: 170px;
-				padding: 5px;
-			}
-			.btn-remove {
-				width: 120px;
-			    text-align: center;
-			    background-color: #dc3545;
-			    color: #ffffff;
-			    font-size: 1.25rem;
-			    border-top: 1px solid black;
-			}
-			.btimg-edit {
-				display: flex;
-			    align-items: center;
-			    width: 120px;
-			}
-			.buton-img {
-				margin-bottom: unset;
-			    display: flex;
-			    width: 100px;
-			    margin: 10px 9px;
-			    flex-direction: column;
-			    text-align: center;
-			    align-items: center;
-			    border: 1px solid black;
-    			border-radius: 5px;
-			}
-			.upload-image {
-				width: 0px;
-				height: 0px;
-				overflow: hidden;
-			}
-			.grid-images {
-				display: flex;
-				flex-wrap: wrap;
-			}
-			.header-comment {
-				display: flex;
-			    justify-content: space-between;
-			    margin: 5px 10px;
-			    align-items: center;
-			}
-			.alter-header-comment {
-				display: flex;
-			    justify-content: space-between;
-			    align-items: center;
-			    color: white;
-			    background: #2e8b8b;
-			    padding: 5px 10px;
-			    font-weight: 100 !important;
-			}
-			.footer-comment {
-				display: flex;
-			    justify-content: space-between;
-			    margin: 5px 10px;
-			    align-items: center;
-			}
-			.order-title {
-				display: flex;
-				padding: 10px 30px 0px 30px;
-			}
 			.user_type {
 				font-size: .75rem;
 			}
 			.title {
-				color: lightgray;
-	    		border-bottom: 2px inset lightgray;
-			}
-			.title-l {
-				width: 70%;
-			}
-			.title-r {
-				width: 30%;
-				color: red;
-				text-align: end;
-			}
-			.empty-div {
-				display: flex;
-				height: 200px;
-				margin: 10px 20px 0px 20px;
-			    flex-direction: column;
-			    text-align: center;
-			    justify-content: center;
-			    align-items: center;
+	    		color: white;
+			    border-bottom: 0px;
+			    padding: 10px 10px 0px 10px;
+			    border-top-left-radius: 5px;
+			    border-top-right-radius: 5px;
 			}
 			.content-div {
 				display: flex;
@@ -1132,28 +1246,6 @@
 			    text-align: center;
 			    justify-content: center;
 			}
-			.avance.active,.comentario.active,.realizandose.active {
-				display: block;
-			}
-			.avance,.comentario,.realizandose {
-				display: none;
-			}
-			.prog-cus {
-				font-weight: 100;
-    			margin: 0px 5px;
-			}
-			.gotop {
-				position: fixed;
-				bottom: 30px;
-				right: 20px;
-				width: 30px;
-				height: 30px;
-				background: #e74c3c;
-				color: white;
-				border: none;
-				cursor: pointer;
-				border-radius: 30px;
-			}
 			.m-content {
 				margin: 0px 50px;
 			}
@@ -1161,10 +1253,6 @@
 				display: flex;
 			    padding: .5rem;
 			    flex-direction: column; 
-			}
-			.modal-btn-cus {
-				margin: 5px 10px;
-    			font-size: .8rem;
 			}
 			.edit-estado {
 				background: #c62be2;
@@ -1191,38 +1279,112 @@
 			    margin-top: 10px;
 			    padding: 5px;
 			}
-			.prog-cus {
-				font-weight: 100;
-    			margin: 0px 5px;
-			}
-			.in-fin {
-				display: flex;
-			    margin: 2px 5px;
-			    justify-content: space-between;
+			.d-block-sm {
+				display: block;
 			}
 		}
-
 		/* Medium devices (landscape tablets, 768px and up) */
-		@media only screen and (min-width: 768px) {
+		/*@media only screen and (min-width: 768px) {
 			.dimen {
-				padding: 1.1rem 5rem 1.1rem 5rem;
+				padding: 1.1rem 5rem;
 			}
-			.dimen-size {
-			    margin-left: auto;
-			    margin-right: auto;
-			    max-width: 95.36743rem;
-			}
-		}
+		}*/
 
 		/* Large devices (large laptops and desktops, 1200px and up) */
-		@media only screen and (min-width: 1200px) {
-			.dimen {
-				padding: 1.1rem 5rem 1.1rem 5rem;
+		/*@media only screen and (min-width: 1200px) {*/
+		@media only screen and (min-width: 768px) {
+			body {
+				background: url('resources/images/fondo.jpg') no-repeat center center fixed;
+			  	background-size: cover;
+			  	min-height: 100%;
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
 			}
-			.dimen-size {
-			    margin-left: auto;
-			    margin-right: auto;
-			    max-width: 95.36743rem;
+			.body-lg {
+				height: 100vh;
+    			background: rgb(87,186,241);
+			}
+			.dimen {
+				padding: 1.1rem 5rem;
+			}
+			.navbar {
+				padding: 0rem 0rem;
+			}
+			.opt-link {
+				padding: .3rem .3rem;
+				color: rgba(0,0,0,.8);
+			}
+			.opt-link:hover {
+				color: red;
+				text-decoration: none;
+			}
+			.let-large {
+				display: flex;
+			    flex-direction: column;
+			    align-items: center;
+			}
+			.order-title {
+				display: flex;
+				flex-direction: column;
+			}
+			#vigente {
+				display: flex;
+			}
+			.content-div {
+				padding: 10px;
+				display: flex;
+				flex-wrap: wrap;
+				text-align: center;
+			}
+			.title {
+				color: white;
+				padding: 20px 10px;
+				border-top-left-radius: 5px;
+				border-bottom-left-radius: 5px;
+			}
+			.gotop {
+				bottom: 50px;
+			    right: 40px;
+			    width: 50px;
+			    height: 50px;
+			}
+			.avance,.comentario,.realizandose {
+				background: #57baf1;
+			}
+			.comment {
+				flex-direction: column;
+				width: 400px;
+				margin: 5px;
+			}
+			.img-upload,.content-upload,.btn-remove {
+				width: 170px;
+			}
+			.padd {
+				padding: 1rem 10rem;
+			}
+			.sc-lg {
+				padding: 0rem 5rem;
+			}
+			.title-uni {
+				padding: 10px 30px 0px;
+			}
+			.pad-cus {
+				padding: 0px 30px 10px;
+			}
+			.com-hijo {
+				display: flex;
+				flex-wrap: wrap;
+				padding-left: 30px;
+			}
+			.d-flex-lg {
+				display: flex;
+			}
+			.lg-empty {
+				width: -moz-available;
+				width: -webkit-fill-available;
+    			justify-content: center;
+    			align-self: center;
 			}
 		}
 	</style>

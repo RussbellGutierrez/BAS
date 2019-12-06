@@ -24,4 +24,11 @@ class Conexion {
         $connectionWeb = array("Database" => "WEB_COMENTARIOS", "UID" => "systerra", "PWD" => "2345", "CharacterSet" => "UTF-8");
         return $cont = sqlsrv_connect($serverName, $connectionWeb);
     }
+
+    function conectMySQL(){
+        $user = "terran13_orterra";
+        $password = "t7rr8n0rt7";
+        $server ="localhost";
+        return $conexion = mysql_connect($server,$user,$password);
+    }
 }
