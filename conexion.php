@@ -28,7 +28,8 @@ class Conexion {
     function conectMySQL(){
         $user = "terran13_orterra";
         $password = "t7rr8n0rt7";
-        $server ="localhost";
-        return $conexion = mysqli_connect($server,$user,$password);
+        $server = "localhost";
+        $database = "terran13_WEB_COMENTARIOS";
+        return $conexion = mysqli_connect($server,$user,$password,$database);
     }
 }

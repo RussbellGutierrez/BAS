@@ -17,11 +17,10 @@ $cadena = $m->getConectMySQL();//$cadena = $m->getConectWeb();
 $nom = strtoupper($nombre);
 
 if ($opcion == 0){
-	$clavehash = password_hash($clave, PASSWORD_DEFAULT);
 	$sql = $query->loginUsuario($dni);
 	$get = mysqli_query($cadena,$sql);//$get = sqlsrv_query($cadena,$sql);
 	if ($get === false) {
-			$mensaje = '3';
+		$mensaje = '3';
 	}else{
 		while($d = mysqli_fetch_array($get)){//while($d = sqlsrv_fetch_array($get)){
 			$row = array('id'=>$d['id'],'usuario'=>$d['descrip'],'tipo'=>$d['tipo'],'tipo_desc'=>$d['tipo_desc']);
