@@ -34,11 +34,12 @@ class Metodos{
 
     function getHasher(){
     	$sql = new Query;
-    	$conexion = new Conexion;
+    	//$conexion = new Conexion;
     	/*$cadena = $conexion->conectWeb();
     	$execute = sqlsrv_query($cadena,$sql->getCookie());
     	while($p = sqlsrv_fetch_array($execute)){*/
-        $cadena = $conexion->conectMySQL();
+        //$cadena = $conexion->conectMySQL();
+        $cadena = $this->getConectMySQL();
         $execute = mysqli_query($cadena,$sql->getCookie());
         while($p = mysqli_fetch_array($execute)){
     		$data = $p['ID']." ".$p['SECRET'];
@@ -49,8 +50,9 @@ class Metodos{
     function decodeCookie($jwt){
     	$djwt = '';
         $sql = new Query;
-    	$conexion = new Conexion;
-    	$cadena = $conexion->conectMySQL();//$cadena = $conexion->conectWeb();
+    	//$conexion = new Conexion;
+    	//$cadena = $conexion->conectMySQL();//$cadena = $conexion->conectWeb();
+        $cadena = $this->getConectMySQL();
     	$header = explode('.', $jwt)[0];
     	$payload = explode('.', $jwt)[1];
     	$signature = explode('.', $jwt)[2];
@@ -73,8 +75,8 @@ class Metodos{
             sqlsrv_fetch($exe);
             $anulado = sqlsrv_get_field($exe, 0);*/
             $exe = mysqli_query($cadena,$sql->usuarioDisponible($djwt->id));
-            $anulado = $this->mysqli_field_name($exe, 0);
-            if ($anulado == 0) {
+            $anulado = mysqli_fetch_assoc($exe);
+            if ($anulado['anulado'] == 0) {
                 $respuesta = $djwt;
             }else {
                 $respuesta = 0;
@@ -83,10 +85,10 @@ class Metodos{
     	return $respuesta;
     }
 
-    function mysqli_field_name($result, $field_offset) {
+    /*function mysqli_field_name($result, $field_offset) {
         $properties = mysqli_fetch_field_direct($result, $field_offset);
         return is_object($properties) ? $properties->def : false;
-    }
+    }*/
 
     function hasher($tamanho) { 
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 

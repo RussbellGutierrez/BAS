@@ -15,12 +15,12 @@ if (isset($_COOKIE['_pr'])) {
 
 	$deco = $m->decodeCookie($_COOKIE['_pr']);
 	if ($deco != '0') {
-		$cadena = $m->getConectMySQL();//$cadena = $m->getConectWeb();
+		$cadena = $m->getConectMySQL();
 		$sql = $query->getDetalle(1,0,0,0);
 
-		$execute = mysqli_query($cadena,$sql);//$execute = sqlsrv_query($cadena,$sql);
+		$execute = mysqli_query($cadena,$sql);
 
-		while($datos = mysqli_fetch_array($execute)){//while($datos = sqlsrv_fetch_array($execute)){
+		while($datos = mysqli_fetch_array($execute)){
 			if ($user == 0 && $coment == 0) {
 				$user = $datos['usuario'];
 				$coment = $datos['codcoment'];

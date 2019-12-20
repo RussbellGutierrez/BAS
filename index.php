@@ -31,6 +31,7 @@
 	<script defer src="https://use.fontawesome.com/releases/v5.6.1/js/all.js" integrity="sha384-R5JkiUweZpJjELPWqttAYmYM1P3SNEJRM6ecTQF05pFFtxmCO+Y1CiUhvuDzgSVZ" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<link href="https://fonts.googleapis.com/css?family=Nunito:400,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="resources/styles/index.css">
 </head>
 <body>
 	<div id="backcarousel" class="carousel slide" data-ride="carousel">
@@ -40,7 +41,7 @@
 	      <li data-target="#backcarousel" data-slide-to="2"></li>
 	    </ol>
 	    <div class="carousel-inner" role="listbox">
-	    	<div class="carousel-item active" style="background-image: url('https://source.unsplash.com/f5pTwLHCsAg/1920x1080')">
+	    	<div class="carousel-item active" style="background-image: url('https://source.unsplash.com/B3l0g6HLxr8/1920x1080')">
 	    		<div class="carousel-caption d-none d-md-block">
 	    		</div>
 	    	</div>
@@ -48,7 +49,7 @@
 	    		<div class="carousel-caption d-none d-md-block">
 	    		</div>
 	    	</div>
-	    	<div class="carousel-item" style="background-image: url('https://source.unsplash.com/pjAH2Ax4uWk/1920x1080')">
+	    	<div class="carousel-item" style="background-image: url('https://source.unsplash.com/FBNxmwEVpAc/1920x1080')">
 	    		<div class="carousel-caption d-none d-md-block">
 	    		</div>
 	    	</div>
@@ -103,6 +104,8 @@
 	</div>
 	<script>
 	$(function() {
+		var h = $(window).height()
+		$('.carousel-item').css('height',h)
 		$('.carousel').carousel({
         	interval: 7000,
             pause: false
@@ -169,6 +172,8 @@
 							Swal.fire('Error','Ocurrio un error al registrar el usuario','error')
 						}else if (json['msg'] == 3) {
 							Swal.fire('Advertencia','No puede usar este DNI','warning')
+						}else if (json['msg'] == 4) {
+							Swal.fire('Error','No tiene permiso para crear un usuario','error')
 						}
 					}
 				})
@@ -178,174 +183,5 @@
         })
 	})
 	</script>
-	<style>
-		.carousel-item {
-			height: 100vh;
-			background: no-repeat center center scroll;
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
-		}
-		.carousel-indicators li {
-			width: 10px;
-			height: 10px;
-			background-color: rgba(0,0,0,0);
-			border: 1px solid #fff;
-			border-radius: 20px;
-		}
-		.carousel-indicators .active {
-			background-color: #fff;
-		}
-		.over-carousel {
-			position: fixed;
-		    top: 0;
-		    right: 0;
-		    bottom: 0;
-		    left: 0;
-		    margin: auto;
-		    padding: .5rem;
-		    width: min-content;
-    		height: fit-content;
-		    background: rgba(255, 255, 255);
-		}
-		.texto-principal {
-			font-size: 30px;
-			color: black;
-	    	font-family: 'Nunito', sans-serif;
-	    	margin-top: unset;
-	    	margin-bottom: unset;
-		}
-		.texto-secundario {
-			display: none;
-		}
-		.texto-centrado {
-			text-align: center;
-		}
-		.centrar-verhor {
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-		}
-		.centrar-ver {
-			align-items: center;
-		}
-		.margen-10 {
-			margin: 10px;
-		}
-		.form-alineado {
-			width: 300px;
-			display: flex;
-	    	flex-direction: column;
-		}
-		.edit-input {
-			padding: .375rem .75rem;
-		    font-size: 1rem;
-		    font-weight: 400;
-			border: 1px solid #ced4da;
-			border-radius: .25rem;
-	    	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-		}
-		.border-cus {
-			border: unset;
-			border-radius: unset;
-			border-top-left-radius: 1rem;
-    		border-top-right-radius: 1rem;
-		}
-
-		.bord-h-cus {
-			background: #5803e0;
-    		color: white;
-    		padding: .5rem 1rem;
-    		align-items: center;
-			border: unset;
-			border-top-left-radius: .5rem;
-    		border-top-right-radius: .5rem;
-		}
-		/* Small devices (phones, 768px and down) */
-		@media only screen and (max-width: 768px) {
-			.over-carousel {
-				border-radius: 5px;
-			}
-			.content-s {
-				display: flex;
-	    		flex-direction: column;
-			}
-			.principal-s {
-				margin: 20px 20px 0px 20px;
-			}
-			.m-content {
-				margin: 0px 50px;
-			}
-			@-moz-document url-prefix() {
-			  .over-carousel {
-			    height: 344px;
-			  }
-			}
-		}
-
-		/* Medium devices (landscape tablets, 768px and up) */
-		@media only screen and (min-width: 768px) {
-			.over-carousel {
-				display: flex;
-				padding: 0;
-				width: 100%;
-			    height: 300px;
-			    background: rgba(0, 0, 0, 0.3);
-			}
-			.texto-principal {
-				font-size: 40px;
-				color: white;
-			}
-			.texto-secundario {
-				display: contents;
-				color: white;
-		    	font-size: 20px;
-		    	font-family: 'Nunito', sans-serif;
-		    	margin-top: unset;
-		    	margin-bottom: unset;
-			}
-			.medio-w {
-				width: 50%;
-				height: 300px;
-				display: flex;
-			}
-			.tamano-boton {
-				width: 100px;
-			}
-		}
-
-		/* Large devices (large laptops and desktops, 1200px and up) */
-		@media only screen and (min-width: 1200px) {
-			.over-carousel {
-				display: flex;
-				padding: 0;
-				width: 100%;
-				height: 300px;
-			    background: rgba(0, 0, 0, 0.3);
-			}
-			.texto-principal {
-				font-size: 50px;
-				color: white;
-			}
-			.texto-secundario {
-				display: contents;
-				color: white;
-		    	font-size: 20px;
-		    	font-family: 'Nunito', sans-serif;
-		    	margin-top: unset;
-		    	margin-bottom: unset;
-			}
-			.medio-w {
-				width: 50%;
-				height: 300px;
-				display: flex;
-			}
-			.tamano-boton {
-				width: 100px;
-			}
-		}
-
-	</style>
 </body>
 </html>
