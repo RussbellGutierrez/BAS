@@ -356,20 +356,21 @@
 				}
 			})
 			$.datepicker.regional['es'] = {
-                 closeText: 'Cerrar',
-                 prevText: '< Ant',
-                 nextText: 'Sig >',
-                 currentText: 'Hoy',
-                 monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                 monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
-                 dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-                 dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
-                 dayNamesMin: ['D','L','M','X','J','V','S'],
-                 weekHeader: 'Sm',
-                 dateFormat: 'yy-mm-dd',
-                 numberOfMonths: 1,
-                 changeMonth: true
-                 }
+                closeText: 'Cerrar',
+                prevText: '< Ant',
+                nextText: 'Sig >',
+                currentText: 'Hoy',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+                dayNamesMin: ['D','L','M','X','J','V','S'],
+                weekHeader: 'Sm',
+                dateFormat: 'yy-mm-dd',
+                numberOfMonths: 1,
+                changeMonth: true,
+                minDate: "+0d"
+            }
             $.datepicker.setDefaults($.datepicker.regional['es'])
             $('#estimado').datepicker().datepicker('setDate', 'today')
 			$('#opc-estimado').hide()
@@ -597,6 +598,7 @@
 					$('.img-upload').each(function(i){
 						img.push($(this).attr('src'))
 					})
+					mensaje(1)
 					guardarComentario(0,titulo,descrip,app,tipo,JSON.stringify(img),0,'')
 				}
 			})
@@ -1255,9 +1257,15 @@
 			$('.type-button').removeClass('active')
 			$(document).find('.content-upload').remove()
 		}
-		function mensaje(){
+		function mensaje(opt=0){
+			var titulo = ''
+			if (opt == 0) {
+				titulo = 'Obteniendo comentarios...'
+			}else {
+				titulo = 'Guardando comentario...'
+			}
 			Swal.fire({
-				title: 'Obteniendo comentarios...',
+				title: titulo,
 				allowEscapeKey: false,
 				allowOutsideClick: false
 			})
@@ -1315,7 +1323,7 @@
 		}
 		function guardarComentario(opcion,titulo,descrip,app,tipo,img,id,adicional){
 			$.post('guardarComentario.php',{opcion:opcion,titulo:titulo,comentario:descrip,app:app,tipo:tipo,imagenes:img,codcoment:id,adicional:adicional},function(e){
-				console.log(e)
+				Swal.close()
 				if (e != '0') {
 					if (opcion == 0) {
 						if (e == '1') {

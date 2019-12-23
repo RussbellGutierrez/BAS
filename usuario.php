@@ -440,6 +440,7 @@
 					$('.img-upload').each(function(i){
 						img.push($(this).attr('src'))
 					})
+					mensaje(1)
 					guardarComentario(0,titulo,descrip,app,tipo,JSON.stringify(img),0,'')
 				}
 			})
@@ -854,9 +855,15 @@
 			$('.type-button').removeClass('active')
 			$(document).find('.content-upload').remove()
 		}
-		function mensaje(){
+		function mensaje(opt=0){
+			var titulo = ''
+			if (opt == 0) {
+				titulo = 'Obteniendo comentarios...'
+			}else {
+				titulo = 'Guardando comentario...'
+			}
 			Swal.fire({
-				title: 'Obteniendo comentarios...',
+				title: titulo,
 				allowEscapeKey: false,
 				allowOutsideClick: false
 			})
@@ -864,7 +871,7 @@
 		}
 		function guardarComentario(opcion,titulo,descrip,app,tipo,img,id,adicional){
 			$.post('guardarComentario.php',{opcion:opcion,titulo:titulo,comentario:descrip,app:app,tipo:tipo,imagenes:img,codcoment:id,adicional:adicional},function(e){
-				console.log(e)
+				Swal.close()
 				if (e != '0') {
 					if (opcion == 0) {
 						if (e == '1') {
